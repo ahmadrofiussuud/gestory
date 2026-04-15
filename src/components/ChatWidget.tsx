@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { X, RefreshCcw, Search, User } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface Message {
   id: string;
@@ -11,7 +12,11 @@ interface Message {
 }
 
 export default function ChatWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Hide on play page
+  if (pathname === "/play") return null;
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
