@@ -12,18 +12,10 @@ interface Message {
 }
 
 export default function ChatWidget() {
+  // ── 1. Hooks (Must always be called in the same order) ────
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
-  // Hide on play page
-  if (pathname === "/play") return null;
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -36,16 +28,18 @@ export default function ChatWidget() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // ── 2. Effects ──────────────────────────────────────────
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
-      scrollToBottom();
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen]);
 
+  // ── 3. Handlers ──────────────────────────────────────────
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -61,7 +55,6 @@ export default function ChatWidget() {
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI response
     setTimeout(() => {
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
@@ -72,6 +65,10 @@ export default function ChatWidget() {
       setIsTyping(false);
     }, 1500);
   };
+
+  // ── 4. Conditional Rendering (After all hooks) ───────────
+  if (!isMounted) return null;
+  if (pathname === "/play") return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-[100] font-sans">
