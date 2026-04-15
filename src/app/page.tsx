@@ -48,7 +48,7 @@ export default function LandingPage() {
 
           {/* CTA */}
           <Link
-            href="/play"
+            href="/dashboard"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full font-bold transition-all hover:shadow-lg hover:shadow-blue-200 active:scale-95 text-sm"
           >
             Mulai Belajar
@@ -100,7 +100,7 @@ export default function LandingPage() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/play"
+                href="/dashboard"
                 id="cta-hero"
                 className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95"
               >
@@ -286,7 +286,7 @@ export default function LandingPage() {
                 </ul>
 
                 <Link
-                  href="/play"
+                  href="/dashboard"
                   id="cta-manfaat"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95"
                 >
@@ -364,7 +364,7 @@ export default function LandingPage() {
               sekarang juga!
             </p>
             <Link
-              href="/play"
+              href="/dashboard"
               id="cta-banner"
               className="inline-flex items-center gap-3 bg-white text-blue-700 hover:bg-blue-50 px-10 py-5 rounded-2xl font-black text-xl transition-all hover:shadow-2xl active:scale-95"
             >

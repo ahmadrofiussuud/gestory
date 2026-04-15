@@ -22,43 +22,43 @@ import {
 const BANK_SOAL = [
   {
     id: 1,
-    question: "Siapa pengetik naskah proklamasi?",
-    options: { A: "Sayuti Melik", B: "Soekarno" },
+    question: "Kapan proklamasi kemerdekaan Indonesia dikumandangkan?",
+    options: { A: "17 Agustus 1945", B: "16 Agustus 1945" },
     correctAnswer: "A",
     explanation:
-      "Tepat sekali! Sayuti Melik yang mengetik naskahnya menggunakan mesin tik yang dipinjam dari perwakilan Angkatan Laut Jerman.",
+      "Tepat sekali! Kemerdekaan Indonesia diproklamasikan pada hari Jumat, 17 Agustus 1945.",
   },
   {
     id: 2,
     question: "Di mana lokasi pembacaan teks proklamasi?",
-    options: { A: "Jl. Pegangsaan Timur 56", B: "Lapangan IKADA" },
+    options: { A: "Jl. Pegangsaan Timur 56", B: "Rengasdengklok" },
     correctAnswer: "A",
     explanation:
-      "Benar! Meskipun awalnya direncanakan di Lapangan IKADA, lokasi dipindah ke Pegangsaan Timur demi keamanan.",
+      "Benar! Pembacaan teks proklamasi dilaksanakan di halaman rumah Soekarno, Jalan Pegangsaan Timur No. 56, Jakarta.",
   },
   {
     id: 3,
-    question: "Siapa yang menjahit bendera Merah Putih pertama?",
-    options: { A: "Ibu Fatmawati", B: "S.K. Trimurti" },
+    question: "Apa tujuan utama peristiwa Rengasdengklok?",
+    options: { A: "Mendesak proklamasi", B: "Berunding dengan Jepang" },
     correctAnswer: "A",
     explanation:
-      "Betul! Ibu Fatmawati menjahit bendera Merah Putih pertama dengan penuh kesabaran dan keberanian.",
+      "Betul! Golongan muda mendesak Soekarno dan Hatta agar segera memproklamasikan kemerdekaan tanpa pengaruh Jepang.",
   },
   {
     id: 4,
-    question: "Golongan mana yang mendesak proklamasi segera dilaksanakan?",
-    options: { A: "Golongan Muda", B: "Golongan Tua" },
+    question: "Siapa yang mengetik naskah proklamasi?",
+    options: { A: "Sayuti Melik", B: "S.K. Trimurti" },
     correctAnswer: "A",
     explanation:
-      "Tepat! Para pemuda seperti Wikana dan Chaerul Saleh mendesak Bung Karno agar tidak menunggu janji Jepang.",
+      "Tepat! Sayuti Melik mengetik naskah proklamasi yang telah disusun oleh Soekarno, Hatta, dan Ahmad Soebardjo.",
   },
   {
     id: 5,
-    question: "Siapa pendamping Soekarno saat memproklamasikan kemerdekaan?",
-    options: { A: "Mohammad Hatta", B: "Sutan Syahrir" },
+    question: "Siapa penjahit bendera Merah Putih pertama?",
+    options: { A: "Ibu Fatmawati", B: "Raden Ajeng Kartini" },
     correctAnswer: "A",
     explanation:
-      "Luar biasa! Bung Hatta adalah Dwitunggal yang selalu mendampingi Bung Karno.",
+      "Luar biasa! Ibu Fatmawati menjahit bendera pusaka yang dikibarkan saat proklamasi 17 Agustus 1945.",
   },
 ];
 
