@@ -13,8 +13,15 @@ interface Message {
 
 export default function ChatWidget() {
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   // Hide on play page
   if (pathname === "/play") return null;
   const [input, setInput] = useState("");
