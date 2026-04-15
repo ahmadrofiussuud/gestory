@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Astra AI – Asisten Sejarah Interaktif",
+  title: "Gestory – Asisten Sejarah Interaktif",
   description:
     "Platform edukasi interaktif berbasis gestur tangan untuk belajar sejarah secara menyenangkan. Dirancang khusus untuk siswa ADHD.",
 };

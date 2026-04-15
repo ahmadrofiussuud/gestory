@@ -160,7 +160,7 @@ export default function LandingPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/kids_dancing.png"
-              alt="Anak-anak belajar dengan gembira menggunakan Astra AI"
+              alt="Anak-anak belajar dengan gembira menggunakan Gestory"
               style={{ backgroundColor: '#ffffff' }}
               className="relative z-10 w-full max-w-lg object-contain rounded-3xl"
             />
@@ -175,7 +175,7 @@ export default function LandingPage() {
                 ✨ Keunggulan Platform
               </div>
               <h2 className="text-4xl lg:text-5xl font-black text-slate-900">
-                Kenapa Belajar Bareng Astra?
+                Kenapa Belajar Bareng Gestory?
               </h2>
               <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
                 Dirancang khusus untuk membantu teman-teman dengan ADHD tetap
@@ -304,7 +304,7 @@ export default function LandingPage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/assets/kids_friends.png"
-                    alt="Teman-teman belajar bersama dengan Astra AI"
+                    alt="Teman-teman belajar bersama dengan Gestory"
                     style={{ backgroundColor: '#ffffff' }}
                     className="relative z-10 w-full object-contain rounded-2xl"
                   />
@@ -328,7 +328,7 @@ export default function LandingPage() {
                   },
                   {
                     value: "500+",
-                    label: "Siswa aktif menggunakan Astra",
+                    label: "Siswa aktif menggunakan Gestory",
                     bg: "from-purple-500 to-purple-700",
                   },
                   {

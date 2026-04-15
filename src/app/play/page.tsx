@@ -86,6 +86,7 @@ export default function GamePage() {
   const [feedback, setFeedback] = useState<FeedbackData | null>(null);
   const [targetPos, setTargetPos] = useState({ x: 50, y: 50 });
   const [cameraReady, setCameraReady] = useState(false);
+  const [isAudioMuted, setIsAudioMuted] = useState(false);
 
   // ── Refs for mutable values accessed inside MediaPipe callbacks ──
   // These shadow the state values so callbacks always see the latest
@@ -93,6 +94,7 @@ export default function GamePage() {
   const gameStateRef = useRef<GameState>("HUNTING");
   const isPinchingRef = useRef(false);
   const questionIndexRef = useRef(0);
+  const bgmStartedRef = useRef(false);
 
   // Keep refs in sync with state
   useEffect(() => { gameStateRef.current = gameState; }, [gameState]);
@@ -104,6 +106,7 @@ export default function GamePage() {
   const optionsRefs = useRef<Record<string, HTMLDivElement | null>>({});
   // Buttons that should be pinch-clickable
   const backBtnRef    = useRef<HTMLAnchorElement | null>(null);
+  const audioBtnRef   = useRef<HTMLButtonElement | null>(null);
   const restartBtnRef = useRef<HTMLButtonElement | null>(null);
   const homeBtnRef    = useRef<HTMLAnchorElement | null>(null);
 
@@ -155,6 +158,42 @@ export default function GamePage() {
       if (hits(backBtnRef, x, y)) {
         window.location.href = "/";
         return;
+      }
+
+      // ── Audio Toggle button is always pinch-clickable ──
+      if (hits(audioBtnRef, x, y)) {
+        const newMutedState = !isAudioMuted;
+        setIsAudioMuted(newMutedState);
+        const bgm = document.getElementById("bgm-audio") as HTMLAudioElement;
+        if (bgm) {
+          if (!newMutedState) {
+            bgm.volume = 0.4;
+            bgm.play().catch((e) => console.log("Toggle play failed:", e));
+            bgmStartedRef.current = true;
+          } else {
+            bgm.pause();
+          }
+        }
+        return;
+      }
+
+      // ── Audio logic ──────────────────────────────────────────────
+      // Play BGM on first interaction
+      if (!bgmStartedRef.current) {
+        const bgm = document.getElementById("bgm-audio") as HTMLAudioElement;
+        if (bgm && !isAudioMuted) {
+          bgm.volume = 0.4;
+          bgm.play()
+            .then(() => { bgmStartedRef.current = true; })
+            .catch((e) => console.log("BGM play failed:", e));
+        }
+      }
+
+      // Play shoot SFX
+      const shootAudio = document.getElementById("shoot-audio") as HTMLAudioElement;
+      if (shootAudio && !isAudioMuted) {
+        shootAudio.currentTime = 0;
+        shootAudio.play().catch((e) => console.log("SFX play failed:", e));
       }
 
       if (state === "HUNTING") {
@@ -326,7 +365,7 @@ export default function GamePage() {
             <span className="text-slate-400 text-xs font-black tracking-widest uppercase">
               Misi Sejarah
             </span>
-            <span className="text-xl font-black">Astra AI Play</span>
+            <span className="text-xl font-black">Gestory Play</span>
           </div>
         </div>
 
@@ -355,8 +394,36 @@ export default function GamePage() {
           <div className="bg-blue-600/80 backdrop-blur-md px-5 py-3 rounded-2xl font-black border border-blue-500/50 text-sm">
             SOAL {Math.min(questionIndex + 1, BANK_SOAL.length)}/{BANK_SOAL.length}
           </div>
+
+          {/* Audio Toggle */}
+          <button
+            id="audio-btn"
+            ref={audioBtnRef}
+            onClick={() => {
+              const newMutedState = !isAudioMuted;
+              setIsAudioMuted(newMutedState);
+              const bgm = document.getElementById("bgm-audio") as HTMLAudioElement;
+              if (bgm) {
+                if (!newMutedState) { // User wants to UNMUTE (play)
+                  bgm.volume = 0.4;
+                  bgm.play().catch((e) => console.log("Toggle play failed:", e));
+                  bgmStartedRef.current = true;
+                } else { // User wants to MUTE (pause)
+                  bgm.pause();
+                }
+              }
+            }}
+            className="p-3 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center border border-white/10 pointer-events-auto"
+            title={isAudioMuted ? "Hidupkan Suara" : "Matikan Suara"}
+          >
+            <span className="text-xl pointer-events-none">{isAudioMuted ? "🔇" : "🔊"}</span>
+          </button>
         </div>
       </div>
+
+      {/* ── Audio Elements ────────────────────────────────────── */}
+      <audio id="bgm-audio" src="/assets/bgm.mp3" loop preload="auto" />
+      <audio id="shoot-audio" src="/assets/shoot.mp3" preload="auto" />
 
       {/* ── Game States ──────────────────────────────────────── */}
 
