@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Platform edukasi interaktif berbasis gestur tangan untuk belajar sejarah secara menyenangkan. Dirancang khusus untuk siswa ADHD.",
 };
 
+import ChatWidget from "@/components/ChatWidget";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }
