@@ -4,9 +4,9 @@ import { Target, Hand, Pointer, Zap, ArrowRight, CheckCircle, Brain, Rocket, Sta
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gestory – Asisten Sejarah Interaktif",
+  title: "Gestory – Asisten Edukasi Kesehatan Interaktif",
   description:
-    "Platform edukasi interaktif berbasis gestur tangan untuk belajar sejarah dengan cara yang menyenangkan dan aktif.",
+    "Platform edukasi interaktif berbasis gestur tangan untuk belajar pencegahan penyakit kardiovaskular dan penyakit menular dengan cara menyenangkan.",
 };
 
 export default function LandingPage() {
@@ -71,7 +71,7 @@ export default function LandingPage() {
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900">
-              Belajar Sejarah Jadi Lebih{" "}
+              Belajar Kesehatan Jadi Lebih{" "}
               <span className="relative">
                 <span className="text-blue-600">Seru dan Aktif!</span>
                 <svg
@@ -94,7 +94,7 @@ export default function LandingPage() {
 
             <p className="text-xl text-slate-600 leading-relaxed max-w-lg">
               Asisten belajar berbasis sensor gerak yang siap melatih fokusmu.
-              Gunakan gestur tangan untuk menaklukkan misi sejarah — tanpa
+              Gunakan gestur tangan untuk menaklukkan misi tantangan kesehatan — tanpa
               keyboard, tanpa mouse!
             </p>
 
@@ -207,7 +207,7 @@ export default function LandingPage() {
                   Kontrol Gerak
                 </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Bebas bergerak! Jawab soal sejarah hanya dengan cubitan jari
+                  Bebas bergerak! Jawab soal kesehatan hanya dengan cubitan jari
                   melalui sensor kamera yang canggih.
                 </p>
               </div>

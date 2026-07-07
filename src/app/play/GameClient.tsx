@@ -22,43 +22,43 @@ import {
 const BANK_SOAL = [
   {
     id: 1,
-    question: "Kapan proklamasi kemerdekaan Indonesia dikumandangkan?",
-    options: { A: "17 Agustus 1945", B: "16 Agustus 1945" },
+    question: "Apa penyebab utama Penyakit Jantung Koroner (PJK)?",
+    options: { A: "Penyumbatan plak kolesterol", B: "Infeksi bakteri jantung" },
     correctAnswer: "A",
     explanation:
-      "Tepat sekali! Kemerdekaan Indonesia diproklamasikan pada hari Jumat, 17 Agustus 1945.",
+      "Tepat sekali! Penyakit Jantung Koroner terutama disebabkan oleh penumpukan plak kolesterol (aterosklerosis) yang menyumbat arteri koroner.",
   },
   {
     id: 2,
-    question: "Di mana lokasi pembacaan teks proklamasi?",
-    options: { A: "Jl. Pegangsaan Timur 56", B: "Rengasdengklok" },
+    question: "Mana yang merupakan cara pencegahan penyakit jantung yang paling efektif?",
+    options: { A: "Olahraga teratur & diet seimbang", B: "Mengonsumsi makanan tinggi lemak" },
     correctAnswer: "A",
     explanation:
-      "Benar! Pembacaan teks proklamasi dilaksanakan di halaman rumah Soekarno, Jalan Pegangsaan Timur No. 56, Jakarta.",
+      "Benar! Gaya hidup sehat dengan olahraga teratur dan diet seimbang adalah pilar utama pencegahan penyakit kardiovaskular.",
   },
   {
     id: 3,
-    question: "Apa tujuan utama peristiwa Rengasdengklok?",
-    options: { A: "Mendesak proklamasi", B: "Berunding dengan Jepang" },
+    question: "Mikroorganisme patogen apa yang menyebabkan penyakit Influenza?",
+    options: { A: "Virus", B: "Bakteri" },
     correctAnswer: "A",
     explanation:
-      "Betul! Golongan muda mendesak Soekarno dan Hatta agar segera memproklamasikan kemerdekaan tanpa pengaruh Jepang.",
+      "Betul! Influenza disebabkan oleh infeksi virus influenza, sedangkan antibiotik tidak efektif untuk mengobatinya.",
   },
   {
     id: 4,
-    question: "Siapa yang mengetik naskah proklamasi?",
-    options: { A: "Sayuti Melik", B: "S.K. Trimurti" },
+    question: "Bagaimana cara penularan penyakit Tuberkulosis (TBC)?",
+    options: { A: "Melalui udara (droplet)", B: "Melalui gigitan nyamuk" },
     correctAnswer: "A",
     explanation:
-      "Tepat! Sayuti Melik mengetik naskah proklamasi yang telah disusun oleh Soekarno, Hatta, dan Ahmad Soebardjo.",
+      "Tepat! Bakteri penyebab Tuberkulosis (TBC) ditularkan dari orang ke orang melalui udara lewat droplet saat penderita batuk atau bersin.",
   },
   {
     id: 5,
-    question: "Siapa penjahit bendera Merah Putih pertama?",
-    options: { A: "Ibu Fatmawati", B: "Raden Ajeng Kartini" },
+    question: "Apa istilah medis untuk kondisi tekanan darah tinggi secara konsisten?",
+    options: { A: "Hipertensi", B: "Hipotensi" },
     correctAnswer: "A",
     explanation:
-      "Luar biasa! Ibu Fatmawati menjahit bendera pusaka yang dikibarkan saat proklamasi 17 Agustus 1945.",
+      "Luar biasa! Hipertensi adalah istilah medis untuk tekanan darah tinggi berkelanjutan yang sering disebut sebagai 'silent killer'.",
   },
 ];
 
@@ -363,7 +363,7 @@ export default function GamePage() {
           </Link>
           <div className="flex flex-col">
             <span className="text-slate-400 text-xs font-black tracking-widest uppercase">
-              Misi Sejarah
+              Misi Kesehatan
             </span>
             <span className="text-xl font-black">Gestory Play</span>
           </div>
@@ -624,7 +624,7 @@ export default function GamePage() {
               Misi Selesai!
             </h2>
             <p className="text-slate-500 text-lg mb-6">
-              Kamu telah menaklukkan semua soal sejarah!
+              Kamu telah menaklukkan semua soal edukasi kesehatan!
             </p>
 
             <div className="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-3xl p-8 mb-8 shadow-lg shadow-blue-200">
