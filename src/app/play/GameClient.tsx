@@ -556,7 +556,7 @@ export default function GamePage() {
 
       {/* STATE: FEEDBACK */}
       {gameState === "FEEDBACK" && feedback && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 overflow-y-auto">
           {/* BG tint */}
           <div
             className={`absolute inset-0 ${
@@ -565,19 +565,19 @@ export default function GamePage() {
           />
 
           {/* Card */}
-          <div className="relative max-w-3xl w-full bg-white rounded-[48px] p-12 shadow-2xl text-slate-900 border-4 border-white/40 text-center">
+          <div className="relative max-w-2xl w-full bg-white rounded-3xl sm:rounded-[48px] p-6 sm:p-10 shadow-2xl text-slate-900 border-2 sm:border-4 border-white/40 text-center flex flex-col items-center">
             {/* Icon */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4 sm:mb-6">
               {feedback.isCorrect ? (
-                <CheckCircle2 className="w-28 h-28 text-green-500" />
+                <CheckCircle2 className="w-16 h-16 sm:w-24 sm:h-24 text-green-500" />
               ) : (
-                <XCircle className="w-28 h-28 text-red-500" />
+                <XCircle className="w-16 h-16 sm:w-24 sm:h-24 text-red-500" />
               )}
             </div>
 
             {/* Title */}
             <h2
-              className={`text-6xl font-black mb-6 ${
+              className={`text-2xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 ${
                 feedback.isCorrect ? "text-green-600" : "text-red-600"
               }`}
             >
@@ -585,15 +585,15 @@ export default function GamePage() {
             </h2>
 
             {/* Explanation */}
-            <div className="bg-slate-50 p-8 rounded-3xl border-2 border-slate-100 mb-6 flex items-start gap-4 text-left">
-              <Info className="w-7 h-7 text-blue-500 flex-shrink-0 mt-0.5" />
+            <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-100 mb-4 sm:mb-6 flex items-start gap-2.5 sm:gap-4 text-left w-full">
+              <Info className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 flex-shrink-0 mt-0.5" />
               <div>
                 {!feedback.isCorrect && (
-                  <p className="text-slate-500 text-sm font-black uppercase tracking-widest mb-1">
+                  <p className="text-slate-500 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1">
                     Jawaban benar: {feedback.correctAnswer}
                   </p>
                 )}
-                <p className="text-xl leading-relaxed text-slate-700 font-medium">
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-700 font-semibold">
                   {feedback.explanation}
                 </p>
               </div>
@@ -601,13 +601,13 @@ export default function GamePage() {
 
             {/* Score gained */}
             {feedback.isCorrect && (
-              <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-6 py-3 rounded-full font-black text-lg mb-6">
-                <Trophy className="w-5 h-5 text-yellow-500" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-green-100 text-green-700 px-4 py-2 sm:px-6 sm:py-3 rounded-full font-black text-sm sm:text-base mb-4 sm:mb-6">
+                <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
                 +100 Poin!
               </div>
             )}
 
-            <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">
+            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs">
               Lanjut ke misi berikutnya dalam 4 detik...
             </p>
           </div>
@@ -617,38 +617,38 @@ export default function GamePage() {
       {/* STATE: FINISHED */}
       {gameState === "FINISHED" && (
         /* cursor-auto overrides parent cursor-none so mouse clicks work normally */
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-slate-900/95 backdrop-blur-md cursor-auto">
-          <div className="max-w-2xl w-full bg-white rounded-[48px] p-12 shadow-2xl text-slate-900 text-center">
-            <p className="text-7xl mb-6">🏆</p>
-            <h2 className="text-5xl font-black text-slate-900 mb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-slate-900/95 backdrop-blur-md cursor-auto overflow-y-auto">
+          <div className="max-w-xl w-full bg-white rounded-3xl sm:rounded-[48px] p-6 sm:p-10 shadow-2xl text-slate-900 text-center flex flex-col items-center">
+            <p className="text-5xl sm:text-7xl mb-4 sm:mb-6">🏆</p>
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mb-2 sm:mb-3">
               Misi Selesai!
             </h2>
-            <p className="text-slate-500 text-lg mb-6">
+            <p className="text-slate-500 text-sm sm:text-base mb-4 sm:mb-6">
               Kamu telah menaklukkan semua soal edukasi kesehatan!
             </p>
 
-            <div className="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-3xl p-8 mb-8 shadow-lg shadow-blue-200">
-              <p className="text-sm font-black uppercase tracking-widest opacity-70 mb-2">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 mb-4 sm:mb-8 shadow-lg shadow-blue-200 w-full">
+              <p className="text-xs sm:text-sm font-black uppercase tracking-widest opacity-70 mb-1 sm:mb-2">
                 Skor Akhir
               </p>
-              <p className="text-7xl font-black tabular-nums">{score}</p>
-              <p className="text-blue-200 text-sm mt-2 font-medium">
+              <p className="text-4xl sm:text-6xl font-black tabular-nums">{score}</p>
+              <p className="text-blue-200 text-xs sm:text-sm mt-1 sm:mt-2 font-medium">
                 dari {BANK_SOAL.length * 100} poin maksimal
               </p>
             </div>
 
             {/* Pinch hint */}
-            <p className="text-slate-400 text-sm font-bold mb-6 flex items-center justify-center gap-2">
+            <p className="text-slate-400 text-xs sm:text-sm font-bold mb-4 sm:mb-6 flex items-center justify-center gap-1.5 sm:gap-2">
               <Hand className="w-4 h-4" />
               Cubit jari di atas tombol untuk memilih, atau klik biasa
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
               <button
                 id="restart-btn"
                 ref={restartBtnRef}
                 onClick={handleRestart}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-8 py-5 rounded-2xl font-black text-xl transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95 cursor-pointer"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3.5 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95 cursor-pointer"
               >
                 🔄 Main Lagi
               </button>
@@ -656,7 +656,7 @@ export default function GamePage() {
                 href="/"
                 id="home-btn"
                 ref={homeBtnRef}
-                className="flex-1 border-2 border-slate-200 hover:bg-slate-50 text-slate-700 px-8 py-5 rounded-2xl font-black text-xl transition-all text-center flex items-center justify-center cursor-pointer"
+                className="flex-1 border-2 border-slate-200 hover:bg-slate-50 text-slate-700 px-5 py-3.5 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg transition-all text-center flex items-center justify-center cursor-pointer"
               >
                 🏠 Beranda
               </Link>
