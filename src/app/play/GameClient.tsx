@@ -351,48 +351,48 @@ export default function GamePage() {
     <div className="relative h-screen w-screen overflow-hidden bg-slate-900 text-white font-sans cursor-none select-none">
 
       {/* ── Top HUD ──────────────────────────────────────────── */}
-      <div className="absolute top-0 w-full px-8 py-6 flex justify-between items-center z-40 bg-gradient-to-b from-black/60 to-transparent">
-        <div className="flex items-center gap-4">
+      <div className="absolute top-0 w-full px-4 py-3 sm:px-8 sm:py-6 flex justify-between items-center z-40 bg-gradient-to-b from-black/60 to-transparent">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link
             href="/"
             id="back-btn"
             ref={backBtnRef}
-            className="p-3 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-md transition-all cursor-pointer"
+            className="p-2 sm:p-3 bg-white/10 hover:bg-white/20 rounded-xl sm:rounded-2xl backdrop-blur-md transition-all cursor-pointer border border-white/10"
           >            
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
-          <div className="flex flex-col">
-            <span className="text-slate-400 text-xs font-black tracking-widest uppercase">
+          <div className="hidden sm:flex flex-col">
+            <span className="text-slate-400 text-[10px] sm:text-xs font-black tracking-widest uppercase">
               Misi Kesehatan
             </span>
-            <span className="text-xl font-black">Gestory Play</span>
+            <span className="text-sm sm:text-xl font-black">Gestory Play</span>
           </div>
         </div>
 
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-1.5 sm:gap-3 items-center">
           {/* Camera indicator */}
           <div
-            className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-xs font-black border ${
+            className={`flex items-center gap-1.5 px-2.5 py-2 sm:gap-2 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl text-[10px] sm:text-xs font-black border ${
               cameraReady
                 ? "bg-green-500/20 border-green-500/40 text-green-300"
                 : "bg-yellow-500/20 border-yellow-500/40 text-yellow-300 animate-pulse"
             }`}
           >
             <div
-              className={`w-2 h-2 rounded-full ${cameraReady ? "bg-green-400" : "bg-yellow-400"}`}
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${cameraReady ? "bg-green-400" : "bg-yellow-400"}`}
             />
-            {cameraReady ? "SENSOR AKTIF" : "MEMUAT..."}
+            <span>{cameraReady ? "SENSOR" : "MEMUAT"}</span>
           </div>
 
           {/* Score */}
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10">
-            <Trophy className="w-5 h-5 text-yellow-400" />
-            <span className="text-2xl font-black tabular-nums">{score}</span>
+          <div className="flex items-center gap-1.5 sm:gap-3 bg-white/10 backdrop-blur-md px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl border border-white/10">
+            <Trophy className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-yellow-400" />
+            <span className="text-sm sm:text-2xl font-black tabular-nums leading-none">{score}</span>
           </div>
 
           {/* Progress */}
-          <div className="bg-blue-600/80 backdrop-blur-md px-5 py-3 rounded-2xl font-black border border-blue-500/50 text-sm">
-            SOAL {Math.min(questionIndex + 1, BANK_SOAL.length)}/{BANK_SOAL.length}
+          <div className="bg-blue-600/80 backdrop-blur-md px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl font-black border border-blue-500/50 text-[10px] sm:text-sm flex items-center justify-center">
+            <span className="hidden sm:inline mr-1">SOAL</span>{Math.min(questionIndex + 1, BANK_SOAL.length)}/{BANK_SOAL.length}
           </div>
 
           {/* Audio Toggle */}
@@ -413,10 +413,10 @@ export default function GamePage() {
                 }
               }
             }}
-            className="p-3 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center border border-white/10 pointer-events-auto"
+            className="p-2 sm:p-3 bg-white/10 hover:bg-white/20 rounded-xl sm:rounded-2xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center border border-white/10 pointer-events-auto"
             title={isAudioMuted ? "Hidupkan Suara" : "Matikan Suara"}
           >
-            <span className="text-xl pointer-events-none">{isAudioMuted ? "🔇" : "🔊"}</span>
+            <span className="text-sm sm:text-xl pointer-events-none">{isAudioMuted ? "🔇" : "🔊"}</span>
           </button>
         </div>
       </div>
@@ -498,37 +498,37 @@ export default function GamePage() {
 
       {/* STATE: QUESTION */}
       {gameState === "QUESTION" && (
-        <div className="absolute inset-0 flex items-center justify-center p-12 z-30">
-          <div className="w-full max-w-5xl flex flex-col items-center gap-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pt-24 pb-36 px-4 md:px-12 z-30 overflow-y-auto scrollbar-hide">
+          <div className="w-full max-w-4xl flex flex-col items-center gap-6 md:gap-10">
             {/* Question card */}
-            <div className="w-full bg-white/10 backdrop-blur-xl p-10 rounded-[44px] border-2 border-white/20 shadow-2xl text-center">
-              <p className="text-slate-300 text-sm font-black uppercase tracking-widest mb-4">
+            <div className="w-full bg-white/10 backdrop-blur-xl p-6 md:p-10 rounded-3xl md:rounded-[44px] border-2 border-white/20 shadow-2xl text-center">
+              <p className="text-slate-300 text-xs md:text-sm font-black uppercase tracking-widest mb-2 md:mb-4">
                 Pertanyaan {questionIndex + 1} dari {BANK_SOAL.length}
               </p>
-              <h2 className="text-4xl md:text-5xl font-black leading-tight text-white">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black leading-tight text-white">
                 {currentQuestion.question}
               </h2>
-              <div className="mt-6 flex justify-center">
-                <div className="w-24 h-1.5 bg-blue-500 rounded-full" />
+              <div className="mt-4 md:mt-6 flex justify-center">
+                <div className="w-16 md:w-24 h-1 md:h-1.5 bg-blue-500 rounded-full" />
               </div>
             </div>
 
             {/* Option boxes */}
-            <div className="grid grid-cols-2 gap-10 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full">
               {/* Option A */}
               <div
                 id="option-a"
                 ref={(el) => { optionsRefs.current["A"] = el; }}
-                className="relative h-60 bg-blue-600 rounded-[44px] shadow-2xl shadow-blue-700/50 flex flex-col items-center justify-center border-b-8 border-blue-800 transition-all cursor-none group"
+                className="relative min-h-[96px] md:h-60 bg-blue-600 rounded-2xl md:rounded-[44px] shadow-2xl shadow-blue-700/50 flex flex-col items-center justify-center border-b-4 md:border-b-8 border-blue-800 transition-all cursor-none group py-6 md:py-0"
               >
-                <span className="absolute top-5 left-5 w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-black">
+                <span className="absolute top-3 left-3 md:top-5 md:left-5 w-8 h-8 md:w-12 md:h-12 bg-white/20 rounded-lg md:rounded-2xl flex items-center justify-center text-sm md:text-2xl font-black">
                   A
                 </span>
-                <p className="text-4xl font-black px-8 text-center leading-tight">
+                <p className="text-base sm:text-xl md:text-3xl font-black px-6 md:px-8 text-center leading-tight">
                   {currentQuestion.options.A}
                 </p>
                 {/* Hover guide */}
-                <div className="absolute -bottom-5 bg-white text-blue-700 px-4 py-1.5 rounded-full text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow">
+                <div className="absolute -bottom-4 bg-white text-blue-700 px-3 py-1 rounded-full text-[10px] md:text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow">
                   👆 CUBIT SINI
                 </div>
               </div>
@@ -537,15 +537,15 @@ export default function GamePage() {
               <div
                 id="option-b"
                 ref={(el) => { optionsRefs.current["B"] = el; }}
-                className="relative h-60 bg-purple-600 rounded-[44px] shadow-2xl shadow-purple-700/50 flex flex-col items-center justify-center border-b-8 border-purple-800 transition-all cursor-none group"
+                className="relative min-h-[96px] md:h-60 bg-purple-600 rounded-2xl md:rounded-[44px] shadow-2xl shadow-purple-700/50 flex flex-col items-center justify-center border-b-4 md:border-b-8 border-purple-800 transition-all cursor-none group py-6 md:py-0"
               >
-                <span className="absolute top-5 left-5 w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl font-black">
+                <span className="absolute top-3 left-3 md:top-5 md:left-5 w-8 h-8 md:w-12 md:h-12 bg-white/20 rounded-lg md:rounded-2xl flex items-center justify-center text-sm md:text-2xl font-black">
                   B
                 </span>
-                <p className="text-4xl font-black px-8 text-center leading-tight">
+                <p className="text-base sm:text-xl md:text-3xl font-black px-6 md:px-8 text-center leading-tight">
                   {currentQuestion.options.B}
                 </p>
-                <div className="absolute -bottom-5 bg-white text-purple-700 px-4 py-1.5 rounded-full text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow">
+                <div className="absolute -bottom-4 bg-white text-purple-700 px-3 py-1 rounded-full text-[10px] md:text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow">
                   👆 CUBIT SINI
                 </div>
               </div>
@@ -711,7 +711,7 @@ export default function GamePage() {
       </div>
 
       {/* ── PiP Webcam ────────────────────────────────────────── */}
-      <div className="fixed bottom-8 right-8 w-52 h-40 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl bg-black z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-32 h-24 sm:w-52 sm:h-40 rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-4 border-white/20 shadow-2xl bg-black z-50">
         <video
           ref={videoRef}
           id="webcam-pip"
@@ -720,21 +720,21 @@ export default function GamePage() {
           muted
           autoPlay
         />
-        <div className="absolute top-2 left-2 bg-black/60 px-2.5 py-1 rounded-xl text-[10px] uppercase font-black tracking-wider backdrop-blur-sm">
+        <div className="absolute top-1 left-1 sm:top-2 sm:left-2 bg-black/60 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl text-[8px] sm:text-[10px] uppercase font-black tracking-wider backdrop-blur-sm">
           📷 Sensor Aktif
         </div>
       </div>
 
       {/* ── Control hint (bottom-left) ────────────────────────── */}
-      <div className="fixed bottom-8 left-8 flex items-center gap-3 bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-3xl border border-white/10 z-50">
-        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-          <Hand className="w-5 h-5" />
+      <div className="fixed bottom-4 left-4 sm:bottom-8 sm:left-8 flex items-center gap-1.5 sm:gap-3 bg-slate-800/80 backdrop-blur-md px-3 py-2 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl border border-white/10 z-50">
+        <div className="w-6 h-6 sm:w-10 sm:h-10 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+          <Hand className="w-3 h-3 sm:w-5 sm:h-5" />
         </div>
         <div className="text-left">
-          <p className="text-[10px] font-black uppercase tracking-wider text-blue-400 leading-none mb-0.5">
+          <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-wider text-blue-400 leading-none mb-0.5">
             Kontrol
           </p>
-          <p className="text-sm font-bold text-white">
+          <p className="text-[10px] sm:text-sm font-bold text-white">
             Cubit jari untuk menembak!
           </p>
         </div>
