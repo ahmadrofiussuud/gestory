@@ -22,44 +22,84 @@ import {
 const BANK_SOAL = [
   {
     id: 1,
-    question: "Apa penyebab utama Penyakit Jantung Koroner (PJK)?",
-    options: { A: "Penyumbatan plak kolesterol", B: "Infeksi bakteri jantung" },
+    question: "Apa nama arteri utama yang tersumbat saat seseorang mengalami Penyakit Jantung Koroner (PJK)?",
+    options: { A: "Arteri Koroner", B: "Arteri Pulmonalis" },
     correctAnswer: "A",
     explanation:
-      "Tepat sekali! Penyakit Jantung Koroner terutama disebabkan oleh penumpukan plak kolesterol (aterosklerosis) yang menyumbat arteri koroner.",
+      "Tepat sekali! Arteri koroner adalah pembuluh darah utama yang bertugas menyuplai oksigen dan nutrisi langsung ke otot jantung. Jika arteri ini tersumbat plak kolesterol, terjadilah PJK.",
   },
   {
     id: 2,
-    question: "Mana yang merupakan cara pencegahan penyakit jantung yang paling efektif?",
-    options: { A: "Olahraga teratur & diet seimbang", B: "Mengonsumsi makanan tinggi lemak" },
-    correctAnswer: "A",
+    question: "Lemak jenuh berlebih berbahaya bagi jantung. Mana makanan di bawah ini yang tinggi lemak jenuh?",
+    options: { A: "Minyak zaitun & alpukat", B: "Gorengan & daging berlemak" },
+    correctAnswer: "B",
     explanation:
-      "Benar! Gaya hidup sehat dengan olahraga teratur dan diet seimbang adalah pilar utama pencegahan penyakit kardiovaskular.",
+      "Benar! Gorengan dan daging berlemak mengandung kadar lemak jenuh tinggi, yang dapat memicu penumpukan kolesterol LDL (kolesterol jahat) di pembuluh darah.",
   },
   {
     id: 3,
-    question: "Mikroorganisme patogen apa yang menyebabkan penyakit Influenza?",
-    options: { A: "Virus", B: "Bakteri" },
-    correctAnswer: "A",
+    question: "Penyakit Demam Berdarah Dengue (DBD) menular melalui gigitan vektor nyamuk apa?",
+    options: { A: "Anopheles", B: "Aedes aegypti" },
+    correctAnswer: "B",
     explanation:
-      "Betul! Influenza disebabkan oleh infeksi virus influenza, sedangkan antibiotik tidak efektif untuk mengobatinya.",
+      "Tepat! DBD disebabkan oleh virus Dengue yang ditularkan melalui gigitan nyamuk betina Aedes aegypti. Sementara nyamuk Anopheles adalah pembawa parasit Malaria.",
   },
   {
     id: 4,
-    question: "Bagaimana cara penularan penyakit Tuberkulosis (TBC)?",
-    options: { A: "Melalui udara (droplet)", B: "Melalui gigitan nyamuk" },
+    question: "Mengapa obat antibiotik tidak berguna untuk menyembuhkan penyakit Flu atau Influenza?",
+    options: { A: "Flu disebabkan oleh virus", B: "Flu disebabkan oleh jamur" },
     correctAnswer: "A",
     explanation:
-      "Tepat! Bakteri penyebab Tuberkulosis (TBC) ditularkan dari orang ke orang melalui udara lewat droplet saat penderita batuk atau bersin.",
+      "Betul! Antibiotik dirancang khusus untuk membunuh bakteri. Flu disebabkan oleh virus influenza, sehingga pengobatan antibiotik tidak akan mempan dan justru memicu resistensi bakteri.",
   },
   {
     id: 5,
-    question: "Apa istilah medis untuk kondisi tekanan darah tinggi secara konsisten?",
-    options: { A: "Hipertensi", B: "Hipotensi" },
+    question: "Mengapa Hipertensi (tekanan darah tinggi) sering dijuluki sebagai \"Silent Killer\"?",
+    options: { A: "Sering muncul tanpa gejala klinis jelas", B: "Menyebabkan penderita kehilangan suara" },
     correctAnswer: "A",
     explanation:
-      "Luar biasa! Hipertensi adalah istilah medis untuk tekanan darah tinggi berkelanjutan yang sering disebut sebagai 'silent killer'.",
+      "Luar biasa! Hipertensi dijuluki 'Silent Killer' (pembunuh senyap) karena penderita sering kali merasa sehat tanpa gejala apa pun, namun diam-diam merusak pembuluh darah arteri dan organ vital.",
   },
+  {
+    id: 6,
+    question: "Seseorang dikatakan mulai mengalami Hipertensi jika tekanan darahnya secara konsisten berada di atas angka berapa?",
+    options: { A: "140/90 mmHg", B: "120/80 mmHg" },
+    correctAnswer: "A",
+    explanation:
+      "Benar! Berdasarkan standar medis, tekanan darah ≥ 140/90 mmHg secara konsisten dikategorikan sebagai Hipertensi. Angka 120/80 mmHg adalah batas atas tekanan darah normal.",
+  },
+  {
+    id: 7,
+    question: "Kerusakan arteri jangka panjang akibat hipertensi yang tidak terkontrol paling sering memicu komplikasi apa?",
+    options: { A: "Kanker paru & TBC", B: "Stroke & gagal ginjal" },
+    correctAnswer: "B",
+    explanation:
+      "Tepat sekali! Tekanan darah tinggi yang terus-menerus akan merusak pembuluh darah halus di otak dan ginjal, sehingga komplikasi utamanya adalah stroke dan gagal ginjal.",
+  },
+  {
+    id: 8,
+    question: "Memberikan imunisasi (vaksinasi) kepada balita termasuk ke dalam strategi pencegahan tingkat apa?",
+    options: { A: "Pencegahan Sekunder", B: "Pencegahan Primer" },
+    correctAnswer: "B",
+    explanation:
+      "Benar! Pencegahan primer bertujuan mencegah penyakit sebelum terjadi (contoh: vaksinasi dan imunisasi). Pencegahan sekunder fokus pada deteksi dini.",
+  },
+  {
+    id: 9,
+    question: "Pemeriksaan tekanan darah rutin dan skrining kolesterol massal termasuk ke dalam upaya pencegahan tingkat apa?",
+    options: { A: "Pencegahan Sekunder", B: "Pencegahan Tersier" },
+    correctAnswer: "A",
+    explanation:
+      "Luar biasa! Upaya deteksi dini seperti skrining kesehatan massal dan pemeriksaan laboratorium awal masuk ke pencegahan sekunder agar penyakit bisa ditangani sedini mungkin.",
+  },
+  {
+    id: 10,
+    question: "Mana yang merupakan salah satu dari 10 indikator Perilaku Hidup Bersih dan Sehat (PHBS) di rumah tangga?",
+    options: { A: "Mencuci tangan dengan air mengalir & sabun", B: "Tidur siang minimal 3 jam sehari" },
+    correctAnswer: "A",
+    explanation:
+      "Tepat! Mencuci tangan dengan sabun dan air mengalir adalah salah satu pilar utama PHBS rumah tangga untuk memutus rantai infeksi kuman penyakit.",
+  }
 ];
 
 // =====================================================
