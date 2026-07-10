@@ -16,12 +16,9 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-blue-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-0.5 group">
-            <div className="relative">
-              <span className="text-[34px] leading-none font-black text-blue-500 tracking-tighter drop-shadow-sm">G</span>
-              <Pointer className="absolute -top-2 left-2.5 w-[18px] h-[18px] text-slate-800 fill-white -rotate-12 group-hover:scale-125 transition-transform" />
-            </div>
-            <span className="text-[28px] leading-none font-black text-slate-700 tracking-tight mt-0.5">estory</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <img src="/assets/logo_gestory.png" alt="Gestory Logo" className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300" />
+            <span className="text-[26px] leading-none font-black text-slate-800 tracking-tight mt-0.5">Gestory</span>
           </Link>
 
           {/* Nav Links */}
@@ -57,14 +54,18 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      <main className="pt-20">
+      <main className="pt-20 relative overflow-hidden">
+        {/* Decorative corner borders */}
+        <img src="/assets/group_172_1.png" alt="Ornamen Pojok Kiri" className="absolute top-0 left-0 w-24 md:w-36 opacity-100 pointer-events-none z-10" />
+        <img src="/assets/group_172_1.png" alt="Ornamen Pojok Kanan" className="absolute top-0 right-0 w-24 md:w-36 opacity-100 pointer-events-none z-10 scale-x-[-1]" />
+
         {/* ===================== HERO SECTION ===================== */}
         <section
           id="home"
           className="max-w-7xl mx-auto px-6 pt-12 pb-24 lg:pt-16 lg:pb-32 grid lg:grid-cols-2 gap-16 items-center"
         >
           {/* Left: Copy */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-bold tracking-wide border border-blue-100">
               <Star className="w-4 h-4 fill-blue-400 text-blue-400" />
               🚀 Platform Edukasi Interaktif Berbasis Gestur
@@ -72,7 +73,7 @@ export default function LandingPage() {
 
             <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900">
               Belajar Kesehatan Jadi Lebih{" "}
-              <span className="relative">
+              <span className="relative inline-block lg:inline">
                 <span className="text-blue-600">Seru dan Aktif!</span>
                 <svg
                   aria-hidden="true"
@@ -92,31 +93,31 @@ export default function LandingPage() {
               </span>
             </h1>
 
-            <p className="text-xl text-slate-600 leading-relaxed max-w-lg">
+            <p className="text-xl text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
               Asisten belajar berbasis sensor gerak yang siap melatih fokusmu.
               Gunakan gestur tangan untuk menaklukkan misi tantangan kesehatan — tanpa
               keyboard, tanpa mouse!
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
               <Link
                 href="/dashboard"
                 id="cta-hero"
-                className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95"
+                className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:shadow-xl hover:shadow-blue-200 active:scale-95 w-full sm:w-auto"
               >
                 Mulai Misi Sekarang
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href="#fitur"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-slate-600 border-2 border-slate-100 hover:bg-slate-50 hover:border-slate-200 transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-slate-600 border-2 border-slate-100 hover:bg-slate-50 hover:border-slate-200 transition-all w-full sm:w-auto"
               >
                 Pelajari Fitur
               </a>
             </div>
 
             {/* Social proof */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-2 justify-center lg:justify-start">
               <div className="flex -space-x-2">
                 {["🧒", "👦", "👧", "🧑"].map((emoji, i) => (
                   <div
@@ -140,6 +141,13 @@ export default function LandingPage() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-sky-50 rounded-full blur-2xl opacity-80 pointer-events-none" />
+
+            {/* Mountain landscape decoration */}
+            <img 
+              src="/assets/group_67.png" 
+              alt="Hiasan Lanskap" 
+              className="absolute inset-0 w-full h-full object-contain opacity-100 pointer-events-none z-0 scale-110" 
+            />
 
             {/* Floating badge — Sensor */}
             <div className="absolute top-4 right-0 bg-white shadow-xl shadow-blue-100 rounded-2xl px-4 py-3 flex items-center gap-2 z-20">
@@ -168,7 +176,16 @@ export default function LandingPage() {
         </section>
 
         {/* ===================== FEATURES SECTION ===================== */}
-        <section id="fitur" className="bg-slate-50 py-28">
+        <section id="fitur" className="relative bg-slate-50 py-28 overflow-hidden">
+          {/* Decorative Bamboo Left */}
+          <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-48 opacity-100 pointer-events-none z-0">
+            <img src="/assets/group_172.png" alt="Bambu Kiri" className="w-full h-auto object-contain" />
+          </div>
+          {/* Decorative Bamboo Right */}
+          <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-48 opacity-100 pointer-events-none z-0 scale-x-[-1]">
+            <img src="/assets/group_172.png" alt="Bambu Kanan" className="w-full h-auto object-contain" />
+          </div>
+
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16 space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
@@ -378,12 +395,9 @@ export default function LandingPage() {
       {/* ===================== FOOTER ===================== */}
       <footer className="py-12 border-t border-slate-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-0.5 opacity-80">
-            <div className="relative">
-              <span className="text-2xl leading-none font-black text-blue-500 tracking-tighter">G</span>
-              <Pointer className="absolute -top-1.5 left-2 w-3.5 h-3.5 text-slate-800 fill-white -rotate-12" />
-            </div>
-            <span className="text-[20px] leading-none font-black text-slate-700 tracking-tight mt-0.5">estory</span>
+          <div className="flex items-center gap-2 opacity-80">
+            <img src="/assets/logo_gestory.png" alt="Gestory Logo" className="h-8 w-auto object-contain" />
+            <span className="text-[20px] leading-none font-black text-slate-800 tracking-tight mt-0.5">Gestory</span>
           </div>
           <p className="text-slate-400 font-medium text-sm">
             © 2026 Gestory. Dibuat dengan ❤️ untuk masa depan pendidikan

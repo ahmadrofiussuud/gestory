@@ -10,14 +10,22 @@ export default function Dashboard() {
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Top Banner / Welcome */}
       <div className="max-w-6xl mx-auto px-6 py-10">
-        <header className="mb-10">
-          <h1 className="text-3xl font-bold text-slate-900">Halo Vicent!</h1>
-          <p className="text-slate-500 mt-1">Selamat datang kembali di beranda</p>
+        <header className="mb-10 flex items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-black text-slate-900">Halo Vicent!</h1>
+            <p className="text-slate-500 mt-1">Selamat datang kembali di beranda belajar Gestory</p>
+          </div>
+          <img src="/assets/logo_gestory.png" alt="Gestory Logo" className="h-16 w-auto object-contain" />
         </header>
 
         {/* Continue Learning - Big Card */}
         <section className="mb-12">
-          <div className="relative overflow-hidden bg-[#0077B6] rounded-[24px] p-8 lg:p-12 text-white shadow-xl">
+          <div className="relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500 rounded-[24px] p-8 lg:p-12 text-white shadow-xl shadow-blue-900/10">
+            {/* Decorative Batik Pattern */}
+            <div className="absolute right-0 bottom-0 w-80 h-full opacity-100 pointer-events-none z-0">
+              <img src="/assets/group_126.png" alt="Pattern Batik" className="w-full h-full object-contain object-right-bottom mix-blend-overlay" />
+            </div>
+
             {/* Background pattern/blobs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
             
@@ -31,7 +39,7 @@ export default function Dashboard() {
               </h2>
               <Link 
                 href={`/course/${lastCourse.id}`}
-                className="inline-flex items-center gap-2 bg-white text-[#0077B6] px-6 py-3 rounded-full font-bold transition-all hover:bg-slate-100 active:scale-95"
+                className="inline-flex items-center gap-2 bg-white text-blue-800 px-6 py-3 rounded-full font-bold transition-all hover:bg-slate-100 active:scale-95"
               >
                 <PlayCircle className="w-5 h-5" />
                 Lanjutkan

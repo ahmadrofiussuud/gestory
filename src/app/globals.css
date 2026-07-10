@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 /* =========================================
-   Design tokens
+   Design tokens & Custom Theme
    ========================================= */
+@theme {
+  --color-blue-50: #f5f2ff;
+  --color-blue-100: #eae1ff;
+  --color-blue-200: #d6c6ff;
+  --color-blue-300: #bba2ff;
+  --color-blue-400: #9b5dff;
+  --color-blue-500: #9b5dff;
+  --color-blue-600: #8146e5;
+  --color-blue-700: #652fcc;
+  --color-blue-800: #352b75;
+  --color-blue-900: #29205c;
+  --color-blue-950: #1b1442;
+}
+
 :root {
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }
