@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, PlayCircle, BookOpen, Clock } from "lucide-react";
+import { ChevronRight, PlayCircle, Clock, Camera } from "lucide-react";
 import { courses } from "@/data/courses";
 
 export default function Dashboard() {
@@ -8,7 +8,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      {/* Top Banner / Welcome */}
       <div className="max-w-6xl mx-auto px-6 py-10">
         <header className="mb-10 flex items-center justify-between gap-4">
           <div>
@@ -21,14 +20,10 @@ export default function Dashboard() {
         {/* Continue Learning - Big Card */}
         <section className="mb-12">
           <div className="relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500 rounded-[24px] p-8 lg:p-12 text-white shadow-xl shadow-blue-900/10">
-            {/* Decorative Batik Pattern */}
             <div className="absolute right-0 bottom-0 w-80 h-full opacity-100 pointer-events-none z-0">
               <img src="/assets/group_126.png" alt="Pattern Batik" className="w-full h-full object-contain object-right-bottom mix-blend-overlay" />
             </div>
-
-            {/* Background pattern/blobs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-            
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/20 backdrop-blur-sm rounded-full text-xs font-bold mb-4">
                 <Clock className="w-3 h-3" />
@@ -37,7 +32,7 @@ export default function Dashboard() {
               <h2 className="text-2xl lg:text-4xl font-black mb-6 leading-tight">
                 {lastCourse.title}
               </h2>
-              <Link 
+              <Link
                 href={`/course/${lastCourse.id}`}
                 className="inline-flex items-center gap-2 bg-white text-blue-800 px-6 py-3 rounded-full font-bold transition-all hover:bg-slate-100 active:scale-95"
               >
@@ -49,7 +44,7 @@ export default function Dashboard() {
         </section>
 
         {/* Course List */}
-        <section>
+        <section className="mb-12">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Kursus tersedia</h2>
             <div className="flex gap-2">
@@ -61,17 +56,16 @@ export default function Dashboard() {
               </button>
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {courses.map((course) => (
-              <Link 
-                key={course.id} 
+              <Link
+                key={course.id}
                 href={`/course/${course.id}`}
                 className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
               >
                 <div className="aspect-[4/3] relative overflow-hidden bg-slate-100">
-                  <img 
-                    src={course.image} 
+                  <img
+                    src={course.image}
                     alt={course.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -91,6 +85,40 @@ export default function Dashboard() {
               </Link>
             ))}
           </div>
+        </section>
+
+        {/* Photobooth Banner */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold text-slate-800 tracking-tight mb-6">Fitur Seru</h2>
+          <Link
+            href="/photobooth"
+            className="group relative flex items-center gap-6 overflow-hidden bg-gradient-to-r from-[#352b75] to-[#9b5dff] rounded-[24px] p-8 text-white shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-900/30 transition-all duration-300 active:scale-[0.99]"
+          >
+            {/* Background glows */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 w-40 h-40 bg-[#9b5dff]/30 rounded-full blur-2xl pointer-events-none" />
+
+            {/* Frame thumbnail */}
+            <div className="relative flex-shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden border-2 border-white/30 shadow-lg group-hover:scale-105 transition-transform duration-300">
+              <img src="/assets/frame_playful.jpg" alt="Frame Photobooth" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Text */}
+            <div className="relative z-10 flex-1">
+              <div className="inline-flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-3">
+                <Camera className="w-3 h-3" />
+                Baru!
+              </div>
+              <h3 className="text-2xl lg:text-3xl font-black leading-tight mb-1">
+                📸 Gestory Photobooth
+              </h3>
+              <p className="text-white/80 font-medium text-sm lg:text-base">
+                Foto selfie seru dengan frame Gestory! Pilih 4 frame unik dan simpan kenangan belajarmu.
+              </p>
+            </div>
+
+            <ChevronRight className="relative z-10 w-8 h-8 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 flex-shrink-0 hidden sm:block" />
+          </Link>
         </section>
       </div>
     </div>
