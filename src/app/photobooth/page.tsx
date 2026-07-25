@@ -114,18 +114,24 @@ export default function PhotoboothPage() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Fill white background first (required for multiply blend to work)
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, W, H);
+
     // Draw mirrored video
     ctx.save();
     ctx.scale(-1, 1);
     ctx.drawImage(video, -W, 0, W, H);
     ctx.restore();
 
-    // Draw frame on top
+    // Draw frame on top using multiply blend — white pixels become transparent
     const frameImg = new window.Image();
     frameImg.crossOrigin = "anonymous";
     frameImg.src = selectedFrame.src;
     frameImg.onload = () => {
+      ctx.globalCompositeOperation = "multiply";
       ctx.drawImage(frameImg, 0, 0, W, H);
+      ctx.globalCompositeOperation = "source-over"; // reset
       const dataUrl = canvas.toDataURL("image/jpeg", 0.95);
       setCapturedPhoto(dataUrl);
     };
@@ -168,7 +174,7 @@ export default function PhotoboothPage() {
 
         {/* ── Camera / Preview Area ─────────────────── */}
         <div className="flex-1 flex flex-col items-center gap-6">
-          <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 bg-black border border-white/10">
+          <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 bg-white border border-white/10">
 
             {/* Camera error state */}
             {cameraError && (
@@ -204,11 +210,11 @@ export default function PhotoboothPage() {
                   autoPlay
                 />
 
-                {/* Frame overlay */}
+                {/* Frame overlay — mix-blend-multiply makes the white/light center transparent */}
                 <img
                   src={selectedFrame.src}
                   alt="Frame"
-                  className="absolute inset-0 w-full h-full object-cover pointer-events-none z-10"
+                  className="absolute inset-0 w-full h-full object-cover pointer-events-none z-10 mix-blend-multiply"
                 />
 
                 {/* Countdown overlay */}
