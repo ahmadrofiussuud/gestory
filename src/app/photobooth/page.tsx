@@ -137,7 +137,12 @@ export default function PhotoboothPage() {
   const startCamera = useCallback(async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user", width: { ideal: 720 }, height: { ideal: 960 } },
+        video: {
+          facingMode: "user",
+          aspectRatio: { ideal: 0.75 }, // 3:4 native portrait ratio to prevent zoom crop
+          width: { ideal: 1080 },
+          height: { ideal: 1440 },
+        },
         audio: false,
       });
       streamRef.current = stream;
@@ -235,7 +240,6 @@ export default function PhotoboothPage() {
 
     const frameImg = new window.Image();
     frameImg.onload = () => {
-      // source-over: frame sits on top, transparent parts show camera through
       ctx.globalCompositeOperation = "source-over";
       ctx.drawImage(frameImg, 0, 0, W, H);
       const dataUrl = canvas.toDataURL("image/jpeg", 0.95);
@@ -257,42 +261,42 @@ export default function PhotoboothPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1b1442] via-[#29205c] to-[#352b75] text-white font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-[#1b1442] via-[#29205c] to-[#352b75] text-white font-sans selection:bg-[#9b5dff]/30">
       {/* Hidden canvas for capture */}
       <canvas ref={canvasRef} className="hidden" />
 
       {/* ── Header ───────────────────────────────── */}
-      <header className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+      <header className="flex items-center justify-between px-4 py-3.5 sm:px-6 sm:py-5 border-b border-white/10 sticky top-0 bg-[#1b1442]/90 backdrop-blur-md z-40">
         <Link
           href="/dashboard"
-          className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+          className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors text-xs sm:text-sm font-semibold"
         >
-          <ArrowLeft className="w-5 h-5" />
-          <span className="font-semibold text-sm">Dashboard</span>
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span>Dashboard</span>
         </Link>
-        <div className="flex items-center gap-2">
-          <Camera className="w-5 h-5 text-[#9b5dff]" />
-          <h1 className="text-lg font-black tracking-tight">Gestory Photobooth</h1>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#9b5dff]" />
+          <h1 className="text-sm sm:text-lg font-black tracking-tight">Photobooth</h1>
         </div>
-        <img src="/assets/logo_gestory.png" alt="Logo" className="h-9 w-auto object-contain" />
+        <img src="/assets/logo_gestory.png" alt="Logo" className="h-7 sm:h-9 w-auto object-contain" />
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8 items-start">
+      <main className="max-w-5xl mx-auto px-3 py-4 sm:px-4 sm:py-8 flex flex-col lg:flex-row gap-6 sm:gap-8 items-center lg:items-start">
 
         {/* ── Camera / Preview Area ─────────────────── */}
-        <div className="flex-1 flex flex-col items-center gap-6">
-          <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 bg-black border border-white/10">
+        <div className="w-full flex-1 flex flex-col items-center gap-4 sm:gap-6">
+          <div className="relative w-full max-w-[340px] sm:max-w-sm aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-black/60 bg-black border border-white/10">
 
             {/* Camera error state */}
             {cameraError && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-slate-900 z-10">
-                <span className="text-5xl">📷</span>
-                <p className="text-white/70 text-sm font-medium text-center px-6">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-slate-900 z-10 p-4">
+                <span className="text-4xl sm:text-5xl">📷</span>
+                <p className="text-white/70 text-xs sm:text-sm font-medium text-center">
                   Tidak bisa mengakses kamera.<br />Pastikan izin kamera diaktifkan di browser.
                 </p>
                 <button
                   onClick={startCamera}
-                  className="bg-[#9b5dff] text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-[#8146e5] transition-all"
+                  className="bg-[#9b5dff] text-white px-5 py-2 rounded-full font-bold text-xs sm:text-sm hover:bg-[#8146e5] transition-all"
                 >
                   Coba Lagi
                 </button>
@@ -329,16 +333,16 @@ export default function PhotoboothPage() {
 
                 {/* ③ Loading indicator while frame is processing */}
                 {!frameReady && (
-                  <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/30">
-                    <div className="text-white text-sm font-bold animate-pulse">Memuat frame...</div>
+                  <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/40 backdrop-blur-xs">
+                    <div className="text-white text-xs sm:text-sm font-bold animate-pulse">Memuat frame...</div>
                   </div>
                 )}
 
                 {/* ④ Countdown overlay */}
                 {countdown !== null && (
                   <div className="absolute inset-0 flex items-center justify-center z-30">
-                    <div className="bg-black/50 backdrop-blur-sm rounded-full w-28 h-28 flex items-center justify-center">
-                      <span className="text-7xl font-black text-white drop-shadow-2xl">
+                    <div className="bg-black/50 backdrop-blur-sm rounded-full w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center">
+                      <span className="text-5xl sm:text-7xl font-black text-white drop-shadow-2xl">
                         {countdown}
                       </span>
                     </div>
@@ -347,9 +351,9 @@ export default function PhotoboothPage() {
 
                 {/* ⑤ Camera status dot */}
                 {cameraReady && (
-                  <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-[10px] font-black text-white uppercase tracking-wider">Live</span>
+                    <span className="text-[9px] sm:text-[10px] font-black text-white uppercase tracking-wider">Live</span>
                   </div>
                 )}
               </>
@@ -358,19 +362,19 @@ export default function PhotoboothPage() {
 
           {/* ── Action Buttons ─────────────────────────── */}
           {capturedPhoto ? (
-            <div className="flex gap-4 w-full max-w-sm">
+            <div className="flex gap-3 w-full max-w-[340px] sm:max-w-sm">
               <button
                 onClick={handleRetake}
-                className="flex-1 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-5 py-3.5 rounded-2xl font-bold transition-all active:scale-95"
+                className="flex-1 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-4 py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm transition-all active:scale-95"
               >
-                <RefreshCw className="w-5 h-5" />
+                <RefreshCw className="w-4 h-4 sm:w-5 sm:h-5" />
                 Foto Ulang
               </button>
               <button
                 onClick={handleDownload}
-                className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#9b5dff] to-[#652fcc] hover:from-[#ab72ff] hover:to-[#7a3de8] text-white px-5 py-3.5 rounded-2xl font-bold transition-all active:scale-95 shadow-lg shadow-purple-900/50"
+                className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#9b5dff] to-[#652fcc] hover:from-[#ab72ff] hover:to-[#7a3de8] text-white px-4 py-3 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm transition-all active:scale-95 shadow-lg shadow-purple-900/50"
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 Simpan Foto
               </button>
             </div>
@@ -378,26 +382,26 @@ export default function PhotoboothPage() {
             <button
               onClick={handleCapture}
               disabled={!cameraReady || isCapturing || !frameReady}
-              className="w-full max-w-sm flex items-center justify-center gap-3 bg-gradient-to-r from-[#9b5dff] to-[#652fcc] hover:from-[#ab72ff] hover:to-[#7a3de8] disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-4 rounded-2xl font-black text-lg transition-all active:scale-95 shadow-lg shadow-purple-900/50"
+              className="w-full max-w-[340px] sm:max-w-sm flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#9b5dff] to-[#652fcc] hover:from-[#ab72ff] hover:to-[#7a3de8] disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-black text-base sm:text-lg transition-all active:scale-95 shadow-lg shadow-purple-900/50"
             >
-              <Camera className="w-6 h-6" />
+              <Camera className="w-5 h-5 sm:w-6 sm:h-6" />
               {isCapturing ? "Bersiap..." : "📸 Ambil Foto!"}
             </button>
           )}
 
-          <p className="text-white/40 text-xs text-center">
+          <p className="text-white/40 text-[11px] sm:text-xs text-center -mt-1">
             Foto akan otomatis disimpan ke perangkat kamu
           </p>
         </div>
 
         {/* ── Frame Selector ────────────────────────── */}
-        <div className="w-full lg:w-72 flex flex-col gap-5">
-          <div>
-            <h2 className="text-lg font-black mb-1">Pilih Frame</h2>
-            <p className="text-white/50 text-sm">Klik untuk ganti frame foto</p>
+        <div className="w-full lg:w-72 flex flex-col gap-4 sm:gap-5">
+          <div className="text-center lg:text-left">
+            <h2 className="text-base sm:text-lg font-black mb-0.5">Pilih Frame</h2>
+            <p className="text-white/50 text-xs sm:text-sm">Klik untuk ganti frame foto</p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-1 gap-2.5 sm:gap-3">
             {FRAMES.map((frame) => {
               const isActive = selectedFrame.id === frame.id;
               return (
@@ -407,14 +411,14 @@ export default function PhotoboothPage() {
                     setSelectedFrame(frame);
                     if (capturedPhoto) setCapturedPhoto(null);
                   }}
-                  className={`relative flex items-center gap-3 p-3 rounded-2xl border-2 transition-all text-left w-full ${
+                  className={`relative flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border-2 transition-all text-left w-full ${
                     isActive
                       ? "border-[#9b5dff] bg-[#9b5dff]/20 shadow-lg shadow-purple-900/40"
                       : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20"
                   }`}
                 >
                   {/* Thumbnail */}
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl overflow-hidden flex-shrink-0 border border-white/20 bg-white">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 border border-white/20 bg-white">
                     <img
                       src={frame.src}
                       alt={frame.label}
@@ -423,13 +427,13 @@ export default function PhotoboothPage() {
                   </div>
 
                   {/* Info */}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 pr-4 sm:pr-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-base">{frame.emoji}</span>
-                      <span className="font-bold text-sm truncate">{frame.label}</span>
+                      <span className="text-sm sm:text-base">{frame.emoji}</span>
+                      <span className="font-bold text-xs sm:text-sm truncate">{frame.label}</span>
                     </div>
                     {frame.isDefault && (
-                      <span className="inline-block mt-1 text-[10px] font-black uppercase tracking-wider bg-[#9b5dff]/30 text-[#c4a0ff] px-2 py-0.5 rounded-full">
+                      <span className="inline-block mt-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-[#9b5dff]/30 text-[#c4a0ff] px-2 py-0.5 rounded-full">
                         Default
                       </span>
                     )}
@@ -437,8 +441,8 @@ export default function PhotoboothPage() {
 
                   {/* Active check */}
                   {isActive && (
-                    <div className="absolute top-2 right-2 w-6 h-6 bg-[#9b5dff] rounded-full flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3.5 h-3.5 text-white" />
+                    <div className="absolute top-2 right-2 w-5 h-5 sm:w-6 sm:h-6 bg-[#9b5dff] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                     </div>
                   )}
                 </button>
@@ -447,9 +451,9 @@ export default function PhotoboothPage() {
           </div>
 
           {/* Tips card */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 mt-2">
-            <p className="text-xs font-black text-[#c4a0ff] uppercase tracking-wider mb-2">💡 Tips Foto</p>
-            <ul className="text-white/60 text-xs space-y-1.5 leading-relaxed">
+          <div className="bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 mt-1">
+            <p className="text-[11px] sm:text-xs font-black text-[#c4a0ff] uppercase tracking-wider mb-1.5">💡 Tips Foto</p>
+            <ul className="text-white/60 text-[11px] sm:text-xs space-y-1 sm:space-y-1.5 leading-relaxed">
               <li>• Pastikan pencahayaan cukup terang</li>
               <li>• Hadapkan wajah ke kamera</li>
               <li>• Tunggu hitung mundur 3 detik</li>
@@ -461,3 +465,4 @@ export default function PhotoboothPage() {
     </div>
   );
 }
+
