@@ -39,8 +39,8 @@ const FRAMES = [
 ];
 
 // ─────────────────────────────────────────────
-// UTIL: Convert white pixels → transparent (alpha=0)
-// Threshold: pixels with R>230 && G>230 && B>230 become fully transparent
+// UTIL: Flood-fill from center → piksel terhubung yg achromatic (checkerboard)
+// jadi transparan. Berhenti di piksel berwarna (frame/hiasan).
 // ─────────────────────────────────────────────
 function makeWhiteTransparent(src: string): Promise<string> {
   return new Promise((resolve) => {
@@ -48,21 +48,63 @@ function makeWhiteTransparent(src: string): Promise<string> {
     img.crossOrigin = "anonymous";
     img.onload = () => {
       const canvas = document.createElement("canvas");
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
+      const W = img.naturalWidth;
+      const H = img.naturalHeight;
+      canvas.width = W;
+      canvas.height = H;
       const ctx = canvas.getContext("2d")!;
       ctx.drawImage(img, 0, 0);
 
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, W, H);
       const data = imageData.data;
 
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        // Near-white pixels → fully transparent
-        if (r > 230 && g > 230 && b > 230) {
-          data[i + 3] = 0;
+      // Helper: apakah piksel "background" = terang DAN achromatic (abu-abu/putih)
+      const isBackground = (x: number, y: number): boolean => {
+        const idx = (y * W + x) * 4;
+        const r = data[idx], g = data[idx + 1], b = data[idx + 2];
+        const brightness = (r + g + b) / 3;
+        const saturation = Math.max(r, g, b) - Math.min(r, g, b);
+        // Terang (>130) DAN hampir grayscale (saturation <55) → background
+        return brightness > 130 && saturation < 55;
+      };
+
+      // Flood fill berbasis stack (BFS) dari titik tengah gambar
+      const visited = new Uint8Array(W * H);
+      const stack: number[] = [];
+
+      const seedX = Math.floor(W / 2);
+      const seedY = Math.floor(H / 2);
+
+      if (isBackground(seedX, seedY)) {
+        stack.push(seedY * W + seedX);
+        visited[seedY * W + seedX] = 1;
+      }
+
+      const dirs = [-1, 1, -W, W]; // left, right, up, down
+
+      while (stack.length > 0) {
+        const pos = stack.pop()!;
+        const x = pos % W;
+        const y = Math.floor(pos / W);
+
+        // Jadikan transparan
+        data[pos * 4 + 3] = 0;
+
+        for (const d of dirs) {
+          const npos = pos + d;
+          const nx = npos % W;
+          const ny = Math.floor(npos / W);
+
+          // Cek batas & belum dikunjungi & masih background
+          if (
+            nx >= 0 && nx < W &&
+            ny >= 0 && ny < H &&
+            !visited[npos] &&
+            isBackground(nx, ny)
+          ) {
+            visited[npos] = 1;
+            stack.push(npos);
+          }
         }
       }
 
