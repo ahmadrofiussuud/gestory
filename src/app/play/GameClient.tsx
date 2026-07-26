@@ -17,88 +17,88 @@ import {
 } from "lucide-react";
 
 // =====================================================
-// BANK SOAL STATIS (KHUSUS MATERI PENYAKIT MENULAR)
+// BANK SOAL STATIS (KHUSUS RAMAH ANAK SD - PENYAKIT MENULAR)
 // =====================================================
 const BANK_SOAL = [
   {
     id: 1,
-    question: "Penyakit menular disebabkan oleh mikroorganisme patogen. Penyakit Influenza disebabkan oleh infeksi apa?",
-    options: { A: "Virus Influenza (Tipe A, B, C)", B: "Bakteri Salmonella" },
+    question: "Saat temanmu bersin atau batuk tanpa menutup mulut, kuman penyakit apa yang gampang menular lewat percikan ludah?",
+    options: { A: "Flu (Influenza)", B: "Sakit Gigi" },
     correctAnswer: "A",
     explanation:
-      "Tepat sekali! Influenza disebabkan oleh Virus Influenza (Tipe A, B, C) yang menyerang saluran pernapasan. Karena disebabkan virus, obat antibiotik tidak mempan menyembuhkannya!",
+      "Pintar! Kuman flu menyebar lewat percikan ludah saat batuk atau bersin. Makanya, selalu pakai masker atau tutup mulutmu dengan lengan baju ya!",
   },
   {
     id: 2,
-    question: "Berdasarkan ukuran partikelnya, apa perbedaan utama penularan penyakit jalur Droplet dan Airborne (Udara Jauh)?",
-    options: { A: "Droplet >5 µm jatuh <1m, Airborne <5 µm melayang lama", B: "Droplet ditularkan nyamuk, Airborne lewat air minum" },
-    correctAnswer: "A",
+    question: "Hewan kecil apa yang suka terbang dan menggigit kita sehingga bisa menularkan penyakit Demam Berdarah (DBD)?",
+    options: { A: "Kucing", B: "Nyamuk Aedes aegypti" },
+    correctAnswer: "B",
     explanation:
-      "Luar biasa! Percikan Droplet berukuran besar (>5 µm) jatuh cepat <1 meter (contoh: Flu), sedangkan partikel Airborne (<5 µm) sangat kecil sehingga melayang lama di udara bebas (contoh: TBC).",
+      "Tepat sekali! Nyamuk betina Aedes aegypti suka membawa kuman demam berdarah. Yuk, rajin menguras penampungan air di rumah!",
   },
   {
     id: 3,
-    question: "Bakteri Mycobacterium tuberculosis penyebab penyakit TBC melayang lama di udara. Jalur penularan ini disebut apa?",
-    options: { A: "Waterborne (Lewat Air)", B: "Airborne (Udara Jauh)" },
-    correctAnswer: "B",
+    question: "Supaya kuman nakal di tanganmu bersih dan kabur ketakutan, berapa detik kita harus menggosok tangan dengan sabun?",
+    options: { A: "Minimal 20 Detik", B: "Cuma 2 Detik" },
+    correctAnswer: "A",
     explanation:
-      "Benar! TB menular secara Airborne lewat udara. Oleh karena itu, sirkulasi udara yang baik dan cahaya matahari teratur di rumah sangat efektif membunuh kuman TB!",
+      "Luar biasa! Gosok sela-sela jarimu dengan sabun di bawah air mengalir minimal 20 detik (kira-kira sambil menyanyi lagu Potong Bebek Angsa)!",
   },
   {
     id: 4,
-    question: "Bersentuhan kulit secara langsung dengan penderita atau hewan pembawa kuman dapat menularkan penyakit kulit gatal apa?",
-    options: { A: "Skabies (Kudis)", B: "Kolera" },
-    correctAnswer: "A",
+    question: "Kalau kita meminum air kotor yang tidak dimasak mendidih, kuman jahat bisa masuk ke perut dan bikin kita sakit apa?",
+    options: { A: "Patah Tulang", B: "Sakit Perut (Kolera/Diare)" },
+    correctAnswer: "B",
     explanation:
-      "Tepat! Skabies adalah contoh penularan Kontak Fisik Langsung akibat kutu/kuman pada kulit. Menjaga kebersihan diri dan pakaian adalah kunci utama pencegahannya.",
+      "Benar! Air kotor membawa kuman kolera penyebab sakit perut. Selalu minum air bersih yang sudah dimasak mendidih ya!",
   },
   {
     id: 5,
-    question: "Menyebar melalui air minum yang tercemar kuman dan memicu sakit perut parah adalah ciri rute Waterborne. Contoh penyakitnya apa?",
-    options: { A: "Tuberkulosis (TB)", B: "Kolera" },
-    correctAnswer: "B",
+    question: "Apa yang harus kita lakukan pada tempat penampungan air di rumah agar nyamuk nakal tidak bisa bertelur?",
+    options: { A: "Kuras & tutup rapat (3M)", B: "Biarkan penuh sampah" },
+    correctAnswer: "A",
     explanation:
-      "Betul! Kolera menular secara Waterborne lewat air yang tercemar kuman. Memasak air hingga mendidih sempurna adalah langkah utama pencegahannya.",
+      "Pintar! Menguras dan menutup tempat penampungan air (gerakan 3M) membuat nyamuk tidak punya tempat untuk bertelur!",
   },
   {
     id: 6,
-    question: "Kuman yang mencemari makanan lezat akibat diolah kurang bersih dapat memicu infeksi pencernaan. Rute ini disebut apa?",
-    options: { A: "Foodborne (Contoh: Salmonellosis)", B: "Vector-borne (Contoh: Malaria)" },
-    correctAnswer: "A",
+    question: "Saat kita sedang bersin-bersin atau sakit, apa yang harus kita pakai di wajah agar teman sekolah tidak tertular kuman?",
+    options: { A: "Kacamata Hitam", B: "Masker Pelindung" },
+    correctAnswer: "B",
     explanation:
-      "Tepat sekali! Foodborne terjadi saat makanan tercemar bakteri (seperti Salmonella). Mencuci bahan makanan dan menjaga kebersihan dapur adalah kunci utamanya.",
+      "Tepat! Memakai masker manis saat sedang sakit akan menahan kuman bersin agar tidak menyembur ke teman-temanmu!",
   },
   {
     id: 7,
-    question: "Nyamuk Aedes aegypti menularkan Virus Dengue (DBD). Gerakan apa yang paling jitu membasmi sarang telur nyamuk ini?",
-    options: { A: "3M Plus (Kuras, Tutup, Daur Ulang)", B: "Membakar sampah plastik" },
+    question: "Kuman TBC melayang di udara. Agar kamar tidur kita bebas dari kuman TBC, kamar harus punya apa?",
+    options: { A: "Jendela & Udara Segar", B: "Kamar Gelap Tanpa Cahaya" },
     correctAnswer: "A",
     explanation:
-      "Hebat! Gerakan 3M Plus (Menguras penampungan air, Menutup rapat wadah air, dan Mendaur ulang barang bekas) memutus siklus bertelur nyamuk Aedes aegypti secara total.",
+      "Hebat! Kuman TBC takut pada cahaya matahari dan udara segar. Selalu buka jendela kamarmu setiap pagi ya!",
   },
   {
     id: 8,
-    question: "Virus Hepatitis B (HBV) menyerang organ hati penderita. Jalur penularan utama virus ini melalui apa?",
-    options: { A: "Percikan ludah bersin di udara", B: "Darah & cairan tubuh (jarum tidak steril)" },
+    question: "Bersentuhan kulit langsung atau memakai handuk bersama teman yang sakit gatal Skabies bisa menularkan kuman lewat apa?",
+    options: { A: "Lewat Suara HP", B: "Sentuhan Kulit Langsung" },
     correctAnswer: "B",
     explanation:
-      "Benar! Virus Hepatitis B menular lewat darah/cairan tubuh dan penggunaan jarum tidak steril. Pencegahan terbaiknya adalah melalui imunisasi Hepatitis B lengkap.",
+      "Benar! Penyakit gatal Skabies menular lewat sentuhan kulit dan handuk bersama. Jangan biasakan pakai baju atau handuk bergantian ya!",
   },
   {
     id: 9,
-    question: "Berapa lama waktu minimal menggosok sela jari dengan sabun dan air mengalir agar kuman tergelincir pergi?",
-    options: { A: "20 Detik", B: "3 Detik" },
+    question: "Mengapa makanan lezat yang dihinggapi lalat jahat tidak boleh kita makan?",
+    options: { A: "Lalat membawa kuman di kakinya", B: "Lalat bikin makanan asin" },
     correctAnswer: "A",
     explanation:
-      "Luar biasa! Panduan CDC & Kemkes RI merekomendasikan cuci tangan minimal 20 detik dengan sabun untuk meluruhkan lapisan kuman dan virus secara menyeluruh.",
+      "Pintar! Lalat hinggap di tempat kotor lalu membawa kuman ke makanan kita. Selalu tutup makanan di atas meja ya!",
   },
   {
     id: 10,
-    question: "Memberikan vaksinasi imunisasi BCG (mencegah TB) dan Hepatitis B kepada bayi termasuk ke dalam strategi pencegahan tingkat apa?",
-    options: { A: "Pencegahan Sekunder (Deteksi dini)", B: "Pencegahan Primer (Sebelum sakit)" },
+    question: "Dokter memberikan suntikan imunisasi / vaksinasi saat kita kecil. Apa gunanya vaksin bagi tubuh kita?",
+    options: { A: "Bikin ngantuk seharian", B: "Bikin tubuh super kuat lawan kuman" },
     correctAnswer: "B",
     explanation:
-      "Tepat sekali! Imunisasi/vaksinasi adalah Pencegahan Primer yang bertujuan melatih pasukan antibodi tubuh agar kebal sebelum kuman berbahaya menyerang.",
+      "Hore, kamu pahlawan sehat! Imunisasi melatih tentara kekebalan di dalam tubuhmu agar siap mengalahkan kuman berbahaya!",
   }
 ];
 
