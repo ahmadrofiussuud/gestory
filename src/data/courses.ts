@@ -81,38 +81,52 @@ export const courses: CourseDetail[] = [
     id: "bab-2",
     title: "Bab 2: Mengenal Penyakit Menular dan Mekanisme Penularannya",
     breadcrumb: "Bab 2: Penyakit Menular",
-    description: "Pelajari jenis-jenis penyakit menular akibat mikroorganisme patogen seperti virus, bakteri, dan parasit, serta cara memutus rantai infeksinya.",
+    description: "Pelajari rute perjalanan kuman (kontak, droplet, airborne, waterborne, foodborne, vektor, cairan tubuh) dan 4 senjata ampuh untuk memutus rantai infeksinya.",
     image: "/assets/bab2_thumb.png",
     sections: [
       {
         type: "pdf",
-        title: "Materi PDF - Bab 2: Dasar Penyakit Menular",
-        url: "#"
+        title: "Materi PDF - Bab 2: Cara Penularan Penyakit Menular (Edisi Edukatif)",
+        url: "/material/Cara%20Penularan%20Penyakit%20Menular%20-%20Edisi%20Edukatif.pdf"
       },
       {
         type: "text",
-        title: "Materi Teks - Metode Transmisi Penyakit Menular",
-        content: "Penyakit menular disebabkan oleh agen biologi seperti virus, bakteri, jamur, atau parasit. Penularan dapat terjadi secara langsung (kontak fisik, droplet saat bersin/batuk) maupun tidak langsung (melalui air, makanan yang terkontaminasi, atau vektor pembawa seperti nyamuk Aedes aegypti pada demam berdarah). Menjaga higienitas diri seperti mencuci tangan dengan sabun merupakan metode pencegahan paling mendasar yang terbukti sangat efektif."
+        title: "Materi Teks - Ringkasan 6 Jalur Penularan Kuman & Senjata Pelindung",
+        content: "Kuman nakal menyebar melalui 6 rute utama: (1) Kontak Fisik Langsung (seperti gatal Skabies), (2) Percikan Droplet (>5 µm jatuh <1m saat bersin/batuk seperti Virus Influenza), (3) Udara Airborne (<5 µm melayang lama seperti Bakteri TB), (4) Air Waterborne (tercemar kuman Kolera), (5) Makanan Foodborne (tercemar bakteri Salmonellosis), (6) Vektor Serangga (gigitan nyamuk Aedes aegypti pembawa Virus Dengue/DBD dan Anopheles pembawa Malaria), serta Cairan Tubuh/Darah (Hepatitis B). Empat senjata ampuh melawannya: Cuci tangan dengan sabun 20 detik, gunakan masker & etika batuk, lengkapi imunisasi (BCG & Hep B), serta jaga kebersihan lingkungan dengan 3M Plus."
       },
       {
         type: "quiz",
-        title: "Pre Test - Penyakit Menular"
+        title: "Pre Test - Penyakit Menular & Rute Kuman"
       }
     ],
     questions: [
       {
         id: 1,
         question: "Mikroorganisme patogen apa yang menyebabkan penyakit Influenza?",
-        options: { A: "Virus", B: "Bakteri" },
+        options: { A: "Virus Influenza (Tipe A, B, C)", B: "Bakteri Salmonella" },
         correctAnswer: "A",
-        explanation: "Influenza disebabkan oleh infeksi virus influenza, bukan oleh bakteri."
+        explanation: "Influenza disebabkan oleh infeksi virus Influenza (Tipe A, B, C) yang menyebar melalui percikan droplet saat batuk/bersin."
       },
       {
         id: 2,
-        question: "Bagaimana cara penularan penyakit Tuberkulosis (TBC)?",
-        options: { A: "Udara (droplet nuclei)", B: "Gigitan nyamuk" },
+        question: "Apa perbedaan utama penularan Droplet dan Airborne (Udara Jauh)?",
+        options: { A: "Droplet >5 µm jatuh <1m, Airborne <5 µm melayang lama", B: "Droplet ditularkan nyamuk, Airborne lewat makanan" },
         correctAnswer: "A",
-        explanation: "Tuberkulosis menyebar dari orang ke orang melalui udara ketika penderita TBC aktif batuk atau bersin."
+        explanation: "Droplet berukuran besar (>5 µm) jatuh cepat dalam jarak 1 meter, sedangkan partikel Airborne sangat ringan (<5 µm) melayang lama di udara seperti bakteri TB."
+      },
+      {
+        id: 3,
+        question: "Berapa lama waktu minimal yang direkomendasikan saat mencuci tangan dengan sabun agar kuman tergelincir pergi?",
+        options: { A: "20 Detik", B: "5 Detik" },
+        correctAnswer: "A",
+        explanation: "Menggosok sela-sela jari dengan air mengalir dan sabun selama minimal 20 detik terbukti ilmiah efektif meluruhkan lapisan dinding kuman."
+      },
+      {
+        id: 4,
+        question: "Penyakit Tuberkulosis (TB) disebabkan oleh kuman apa dan menyebar melalui jalur apa?",
+        options: { A: "Bakteri Mycobacterium tuberculosis via Airborne", B: "Virus Dengue via Gigitan Nyamuk" },
+        correctAnswer: "A",
+        explanation: "TB disebabkan oleh bakteri Mycobacterium tuberculosis yang melayang lama di udara (Airborne), sehingga rumah butuh ventilasi dan sinar matahari yang cukup."
       }
     ]
   },

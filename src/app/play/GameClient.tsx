@@ -30,30 +30,54 @@ const BANK_SOAL = [
   },
   {
     id: 2,
-    question: "Lemak jenuh berlebih berbahaya bagi jantung. Mana makanan di bawah ini yang tinggi lemak jenuh?",
-    options: { A: "Minyak zaitun & alpukat", B: "Gorengan & daging berlemak" },
-    correctAnswer: "B",
+    question: "Berdasarkan ukuran partikelnya, apa perbedaan utama penularan penyakit jalur Droplet dan Airborne (Udara Jauh)?",
+    options: { A: "Droplet >5 µm jatuh <1m, Airborne <5 µm melayang lama", B: "Droplet ditularkan nyamuk, Airborne lewat makanan" },
+    correctAnswer: "A",
     explanation:
-      "Benar! Gorengan dan daging berlemak mengandung kadar lemak jenuh tinggi, yang dapat memicu penumpukan kolesterol LDL (kolesterol jahat) di pembuluh darah.",
+      "Luar biasa! Percikan Droplet berukuran besar (>5 µm) jatuh cepat <1 meter (contoh: Flu), sedangkan partikel Airborne sangat kecil (<5 µm) melayang lama di udara bebas (contoh: TBC).",
   },
   {
     id: 3,
-    question: "Penyakit Demam Berdarah Dengue (DBD) menular melalui gigitan vektor nyamuk apa?",
-    options: { A: "Anopheles", B: "Aedes aegypti" },
-    correctAnswer: "B",
+    question: "Bakteri Mycobacterium tuberculosis penyebab TB melayang lama di udara. Jalur penularan ini disebut apa?",
+    options: { A: "Airborne (Udara Jauh)", B: "Waterborne (Lewat Air)" },
+    correctAnswer: "A",
     explanation:
-      "Tepat! DBD disebabkan oleh virus Dengue yang ditularkan melalui gigitan nyamuk betina Aedes aegypti. Sementara nyamuk Anopheles adalah pembawa parasit Malaria.",
+      "Benar! TB menular secara Airborne lewat udara, sehingga rumah butuh sirkulasi udara dan cahaya matahari cerah agar kuman TB tidak bertahan hidup.",
   },
   {
     id: 4,
-    question: "Mengapa obat antibiotik tidak berguna untuk menyembuhkan penyakit Flu atau Influenza?",
-    options: { A: "Flu disebabkan oleh virus", B: "Flu disebabkan oleh jamur" },
+    question: "Nyamuk Aedes aegypti menularkan Virus Dengue (DBD). Gerakan apa yang paling jitu membasmi sarang telur nyamuk ini?",
+    options: { A: "3M Plus (Kuras, Tutup, Daur Ulang)", B: "Membakar sampah plastik" },
     correctAnswer: "A",
     explanation:
-      "Betul! Antibiotik dirancang khusus untuk membunuh bakteri. Flu disebabkan oleh virus influenza, sehingga pengobatan antibiotik tidak akan mempan dan justru memicu resistensi bakteri.",
+      "Tepat! Gerakan 3M Plus (Menguras penampungan air, Menutup rapat wadah air, dan Mendaur ulang barang bekas) memutus siklus bertelur nyamuk Aedes aegypti.",
   },
   {
     id: 5,
+    question: "Berapa lama waktu minimal menggosok sela jari dengan sabun dan air mengalir agar kuman tergelincir pergi?",
+    options: { A: "20 Detik", B: "3 Detik" },
+    correctAnswer: "A",
+    explanation:
+      "Hebat! Panduan WHO & Kemkes merekomendasikan cuci tangan minimal 20 detik dengan sabun agar meluruhkan dinding sel kuman dan virus secara efektif.",
+  },
+  {
+    id: 6,
+    question: "Mengapa obat antibiotik tidak mempan untuk menyembuhkan penyakit Flu atau Influenza?",
+    options: { A: "Flu disebabkan oleh virus", B: "Flu disebabkan oleh jamur" },
+    correctAnswer: "A",
+    explanation:
+      "Betul! Antibiotik dirancang khusus membunuh bakteri. Flu disebabkan oleh Virus Influenza (Tipe A, B, C), sehingga minum antibiotik untuk flu justru dapat memicu resistensi bakteri.",
+  },
+  {
+    id: 7,
+    question: "Penyakit Kolera menular lewat air minum yang tercemar kuman. Rute penularan melalui air ini disebut apa?",
+    options: { A: "Waterborne", B: "Vector-borne" },
+    correctAnswer: "A",
+    explanation:
+      "Tepat! Waterborne adalah penularan penyakit lewat air yang tercemar kuman (seperti Kolera). Sedangkan Vector-borne adalah penularan lewat gigitan serangga/nyamuk.",
+  },
+  {
+    id: 8,
     question: "Mengapa Hipertensi (tekanan darah tinggi) sering dijuluki sebagai \"Silent Killer\"?",
     options: { A: "Sering muncul tanpa gejala klinis jelas", B: "Menyebabkan penderita kehilangan suara" },
     correctAnswer: "A",
@@ -61,44 +85,20 @@ const BANK_SOAL = [
       "Luar biasa! Hipertensi dijuluki 'Silent Killer' (pembunuh senyap) karena penderita sering kali merasa sehat tanpa gejala apa pun, namun diam-diam merusak pembuluh darah arteri dan organ vital.",
   },
   {
-    id: 6,
-    question: "Seseorang dikatakan mulai mengalami Hipertensi jika tekanan darahnya secara konsisten berada di atas angka berapa?",
+    id: 9,
+    question: "Seseorang dikategorikan mulai mengalami Hipertensi jika tekanan darahnya secara konsisten berada di atas angka berapa?",
     options: { A: "140/90 mmHg", B: "120/80 mmHg" },
     correctAnswer: "A",
     explanation:
       "Benar! Berdasarkan standar medis, tekanan darah ≥ 140/90 mmHg secara konsisten dikategorikan sebagai Hipertensi. Angka 120/80 mmHg adalah batas atas tekanan darah normal.",
   },
   {
-    id: 7,
-    question: "Kerusakan arteri jangka panjang akibat hipertensi yang tidak terkontrol paling sering memicu komplikasi apa?",
-    options: { A: "Kanker paru & TBC", B: "Stroke & gagal ginjal" },
-    correctAnswer: "B",
-    explanation:
-      "Tepat sekali! Tekanan darah tinggi yang terus-menerus akan merusak pembuluh darah halus di otak dan ginjal, sehingga komplikasi utamanya adalah stroke dan gagal ginjal.",
-  },
-  {
-    id: 8,
-    question: "Memberikan imunisasi (vaksinasi) kepada balita termasuk ke dalam strategi pencegahan tingkat apa?",
+    id: 10,
+    question: "Memberikan imunisasi (vaksinasi) BCG dan Hepatitis B kepada bayi termasuk ke dalam strategi pencegahan tingkat apa?",
     options: { A: "Pencegahan Sekunder", B: "Pencegahan Primer" },
     correctAnswer: "B",
     explanation:
       "Benar! Pencegahan primer bertujuan mencegah penyakit sebelum terjadi (contoh: vaksinasi dan imunisasi). Pencegahan sekunder fokus pada deteksi dini.",
-  },
-  {
-    id: 9,
-    question: "Pemeriksaan tekanan darah rutin dan skrining kolesterol massal termasuk ke dalam upaya pencegahan tingkat apa?",
-    options: { A: "Pencegahan Sekunder", B: "Pencegahan Tersier" },
-    correctAnswer: "A",
-    explanation:
-      "Luar biasa! Upaya deteksi dini seperti skrining kesehatan massal dan pemeriksaan laboratorium awal masuk ke pencegahan sekunder agar penyakit bisa ditangani sedini mungkin.",
-  },
-  {
-    id: 10,
-    question: "Mana yang merupakan salah satu dari 10 indikator Perilaku Hidup Bersih dan Sehat (PHBS) di rumah tangga?",
-    options: { A: "Mencuci tangan dengan air mengalir & sabun", B: "Tidur siang minimal 3 jam sehari" },
-    correctAnswer: "A",
-    explanation:
-      "Tepat! Mencuci tangan dengan sabun dan air mengalir adalah salah satu pilar utama PHBS rumah tangga untuk memutus rantai infeksi kuman penyakit.",
   }
 ];
 
