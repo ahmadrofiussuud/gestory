@@ -17,88 +17,88 @@ import {
 } from "lucide-react";
 
 // =====================================================
-// BANK SOAL STATIS
+// BANK SOAL STATIS (KHUSUS MATERI PENYAKIT MENULAR)
 // =====================================================
 const BANK_SOAL = [
   {
     id: 1,
-    question: "Apa nama arteri utama yang tersumbat saat seseorang mengalami Penyakit Jantung Koroner (PJK)?",
-    options: { A: "Arteri Koroner", B: "Arteri Pulmonalis" },
+    question: "Penyakit menular disebabkan oleh mikroorganisme patogen. Penyakit Influenza disebabkan oleh infeksi apa?",
+    options: { A: "Virus Influenza (Tipe A, B, C)", B: "Bakteri Salmonella" },
     correctAnswer: "A",
     explanation:
-      "Tepat sekali! Arteri koroner adalah pembuluh darah utama yang bertugas menyuplai oksigen dan nutrisi langsung ke otot jantung. Jika arteri ini tersumbat plak kolesterol, terjadilah PJK.",
+      "Tepat sekali! Influenza disebabkan oleh Virus Influenza (Tipe A, B, C) yang menyerang saluran pernapasan. Karena disebabkan virus, obat antibiotik tidak mempan menyembuhkannya!",
   },
   {
     id: 2,
     question: "Berdasarkan ukuran partikelnya, apa perbedaan utama penularan penyakit jalur Droplet dan Airborne (Udara Jauh)?",
-    options: { A: "Droplet >5 µm jatuh <1m, Airborne <5 µm melayang lama", B: "Droplet ditularkan nyamuk, Airborne lewat makanan" },
+    options: { A: "Droplet >5 µm jatuh <1m, Airborne <5 µm melayang lama", B: "Droplet ditularkan nyamuk, Airborne lewat air minum" },
     correctAnswer: "A",
     explanation:
-      "Luar biasa! Percikan Droplet berukuran besar (>5 µm) jatuh cepat <1 meter (contoh: Flu), sedangkan partikel Airborne sangat kecil (<5 µm) melayang lama di udara bebas (contoh: TBC).",
+      "Luar biasa! Percikan Droplet berukuran besar (>5 µm) jatuh cepat <1 meter (contoh: Flu), sedangkan partikel Airborne (<5 µm) sangat kecil sehingga melayang lama di udara bebas (contoh: TBC).",
   },
   {
     id: 3,
-    question: "Bakteri Mycobacterium tuberculosis penyebab TB melayang lama di udara. Jalur penularan ini disebut apa?",
-    options: { A: "Airborne (Udara Jauh)", B: "Waterborne (Lewat Air)" },
-    correctAnswer: "A",
+    question: "Bakteri Mycobacterium tuberculosis penyebab penyakit TBC melayang lama di udara. Jalur penularan ini disebut apa?",
+    options: { A: "Waterborne (Lewat Air)", B: "Airborne (Udara Jauh)" },
+    correctAnswer: "B",
     explanation:
-      "Benar! TB menular secara Airborne lewat udara, sehingga rumah butuh sirkulasi udara dan cahaya matahari cerah agar kuman TB tidak bertahan hidup.",
+      "Benar! TB menular secara Airborne lewat udara. Oleh karena itu, sirkulasi udara yang baik dan cahaya matahari teratur di rumah sangat efektif membunuh kuman TB!",
   },
   {
     id: 4,
+    question: "Bersentuhan kulit secara langsung dengan penderita atau hewan pembawa kuman dapat menularkan penyakit kulit gatal apa?",
+    options: { A: "Skabies (Kudis)", B: "Kolera" },
+    correctAnswer: "A",
+    explanation:
+      "Tepat! Skabies adalah contoh penularan Kontak Fisik Langsung akibat kutu/kuman pada kulit. Menjaga kebersihan diri dan pakaian adalah kunci utama pencegahannya.",
+  },
+  {
+    id: 5,
+    question: "Menyebar melalui air minum yang tercemar kuman dan memicu sakit perut parah adalah ciri rute Waterborne. Contoh penyakitnya apa?",
+    options: { A: "Tuberkulosis (TB)", B: "Kolera" },
+    correctAnswer: "B",
+    explanation:
+      "Betul! Kolera menular secara Waterborne lewat air yang tercemar kuman. Memasak air hingga mendidih sempurna adalah langkah utama pencegahannya.",
+  },
+  {
+    id: 6,
+    question: "Kuman yang mencemari makanan lezat akibat diolah kurang bersih dapat memicu infeksi pencernaan. Rute ini disebut apa?",
+    options: { A: "Foodborne (Contoh: Salmonellosis)", B: "Vector-borne (Contoh: Malaria)" },
+    correctAnswer: "A",
+    explanation:
+      "Tepat sekali! Foodborne terjadi saat makanan tercemar bakteri (seperti Salmonella). Mencuci bahan makanan dan menjaga kebersihan dapur adalah kunci utamanya.",
+  },
+  {
+    id: 7,
     question: "Nyamuk Aedes aegypti menularkan Virus Dengue (DBD). Gerakan apa yang paling jitu membasmi sarang telur nyamuk ini?",
     options: { A: "3M Plus (Kuras, Tutup, Daur Ulang)", B: "Membakar sampah plastik" },
     correctAnswer: "A",
     explanation:
-      "Tepat! Gerakan 3M Plus (Menguras penampungan air, Menutup rapat wadah air, dan Mendaur ulang barang bekas) memutus siklus bertelur nyamuk Aedes aegypti.",
+      "Hebat! Gerakan 3M Plus (Menguras penampungan air, Menutup rapat wadah air, dan Mendaur ulang barang bekas) memutus siklus bertelur nyamuk Aedes aegypti secara total.",
   },
   {
-    id: 5,
+    id: 8,
+    question: "Virus Hepatitis B (HBV) menyerang organ hati penderita. Jalur penularan utama virus ini melalui apa?",
+    options: { A: "Percikan ludah bersin di udara", B: "Darah & cairan tubuh (jarum tidak steril)" },
+    correctAnswer: "B",
+    explanation:
+      "Benar! Virus Hepatitis B menular lewat darah/cairan tubuh dan penggunaan jarum tidak steril. Pencegahan terbaiknya adalah melalui imunisasi Hepatitis B lengkap.",
+  },
+  {
+    id: 9,
     question: "Berapa lama waktu minimal menggosok sela jari dengan sabun dan air mengalir agar kuman tergelincir pergi?",
     options: { A: "20 Detik", B: "3 Detik" },
     correctAnswer: "A",
     explanation:
-      "Hebat! Panduan WHO & Kemkes merekomendasikan cuci tangan minimal 20 detik dengan sabun agar meluruhkan dinding sel kuman dan virus secara efektif.",
-  },
-  {
-    id: 6,
-    question: "Mengapa obat antibiotik tidak mempan untuk menyembuhkan penyakit Flu atau Influenza?",
-    options: { A: "Flu disebabkan oleh virus", B: "Flu disebabkan oleh jamur" },
-    correctAnswer: "A",
-    explanation:
-      "Betul! Antibiotik dirancang khusus membunuh bakteri. Flu disebabkan oleh Virus Influenza (Tipe A, B, C), sehingga minum antibiotik untuk flu justru dapat memicu resistensi bakteri.",
-  },
-  {
-    id: 7,
-    question: "Penyakit Kolera menular lewat air minum yang tercemar kuman. Rute penularan melalui air ini disebut apa?",
-    options: { A: "Waterborne", B: "Vector-borne" },
-    correctAnswer: "A",
-    explanation:
-      "Tepat! Waterborne adalah penularan penyakit lewat air yang tercemar kuman (seperti Kolera). Sedangkan Vector-borne adalah penularan lewat gigitan serangga/nyamuk.",
-  },
-  {
-    id: 8,
-    question: "Mengapa Hipertensi (tekanan darah tinggi) sering dijuluki sebagai \"Silent Killer\"?",
-    options: { A: "Sering muncul tanpa gejala klinis jelas", B: "Menyebabkan penderita kehilangan suara" },
-    correctAnswer: "A",
-    explanation:
-      "Luar biasa! Hipertensi dijuluki 'Silent Killer' (pembunuh senyap) karena penderita sering kali merasa sehat tanpa gejala apa pun, namun diam-diam merusak pembuluh darah arteri dan organ vital.",
-  },
-  {
-    id: 9,
-    question: "Seseorang dikategorikan mulai mengalami Hipertensi jika tekanan darahnya secara konsisten berada di atas angka berapa?",
-    options: { A: "140/90 mmHg", B: "120/80 mmHg" },
-    correctAnswer: "A",
-    explanation:
-      "Benar! Berdasarkan standar medis, tekanan darah ≥ 140/90 mmHg secara konsisten dikategorikan sebagai Hipertensi. Angka 120/80 mmHg adalah batas atas tekanan darah normal.",
+      "Luar biasa! Panduan CDC & Kemkes RI merekomendasikan cuci tangan minimal 20 detik dengan sabun untuk meluruhkan lapisan kuman dan virus secara menyeluruh.",
   },
   {
     id: 10,
-    question: "Memberikan imunisasi (vaksinasi) BCG dan Hepatitis B kepada bayi termasuk ke dalam strategi pencegahan tingkat apa?",
-    options: { A: "Pencegahan Sekunder", B: "Pencegahan Primer" },
+    question: "Memberikan vaksinasi imunisasi BCG (mencegah TB) dan Hepatitis B kepada bayi termasuk ke dalam strategi pencegahan tingkat apa?",
+    options: { A: "Pencegahan Sekunder (Deteksi dini)", B: "Pencegahan Primer (Sebelum sakit)" },
     correctAnswer: "B",
     explanation:
-      "Benar! Pencegahan primer bertujuan mencegah penyakit sebelum terjadi (contoh: vaksinasi dan imunisasi). Pencegahan sekunder fokus pada deteksi dini.",
+      "Tepat sekali! Imunisasi/vaksinasi adalah Pencegahan Primer yang bertujuan melatih pasukan antibodi tubuh agar kebal sebelum kuman berbahaya menyerang.",
   }
 ];
 
